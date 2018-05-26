@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jacket_name: 1
+  genre_id: MyString
+  carts_id: MyString
+  remaining_quantity: 1
+  release_date: 2018-05-26 06:22:12
+  rabel_name: MyString
+  artist_name: MyString
+  price: 1
+
+two:
+  jacket_name: 1
+  genre_id: MyString
+  carts_id: MyString
+  remaining_quantity: 1
+  release_date: 2018-05-26 06:22:12
+  rabel_name: MyString
+  artist_name: MyString
+  price: 1
