@@ -1,2 +1,201 @@
-<h1>Admins#top</h1>
-<p>Find me in app/views/admins/top.html.erb</p>
+<html>
+<head>
+  <title>Team Develop</title>
+</head>
+<body>
+	<!-- header -->
+	<header>
+		<h1 class="headline">
+			<a href="team_develop.html" class="header-text">管理者画面</a>
+		</h1>
+	<nav>
+		<ul class="nav-list">
+			<li class="nav-list-item"><a href="sold_index.html" class="nav-text">購入履歴</a>
+			</li>
+			<li class="nav-list-item"><a href="user_index.html" class="nav-text">User一覧</a></li>
+		</ul>
+	</nav>
+	</header>
+	<!-- main-visual -->
+<h2 style="margin-left: 50px;padding-top: 25px;">New Albums!!</h2>
+		<script src="jquery-3.3.1.min.js"></script>
+      <script src="app.js"></script>
+			<script type="text/javascript">
+			var loop = setInterval(function() {
+    	//li先頭要素のクローンを作成
+    	var clone = $(".slide li:first").clone(true);
+    	//li先頭要素のマージンレフトにマイナスを指定しアニメーションさせる
+    	$(".slide li:first").animate({
+    	marginLeft : "-100%"
+    	}, {
+    	duration : 3500,
+    	complete : function() {
+    	    //処理完了時に先頭要素を削除
+    	    $(".slide li:first").remove();
+    	    //クローンをliの最後に追加
+    	    clone.clone(true).insertAfter($(".slide li:last"));
+    		}
+    		});
+				}, 0);
+				</script>
+
+
+				<ul class="slide">
+				<li><a href="product_edit.html"><img class="product-image" src="img/neon_night.jpg" ></a></li>
+				<li><img class="release-image" src="img/asiangirl.jpg"></li>
+				<li><img class="release-image" src="img/blackguy.jpg"></li>
+				<li><img class="release-image" src="img/book_shelf.jpg"></li>
+				<li><img class="release-image" src="img/boy_screaming.jpg"></li>
+				<li><img class="release-image" src="img/alice.jpg"></li>
+				<li><img class="release-image" src="img/headphone.jpg"></li>
+				<li><img class="release-image" src="img/cutelady.jpg"></li>
+				</ul>
+				<br clear="all">
+	<!-- main -->
+	<main class="clearfix">
+		
+		<div class="sidebar">
+			<h2 class="sidebar-headline">商品追加</h2>
+			<div class="new-form">
+				<form class="contact-form" action="//www-creators.com/rsc/receiver.php" method="post">
+  　　　		<p>商品情報</p>
+  　　　		<div class="item">
+    　　　		<label class="label" for="name" name="name">商品名：</label>
+    　　　		<input id="name" type="text">
+  　　　		</div>
+  　　　		<div class="item">
+    　　　		<label class="label" for="name" name="name">アーティスト名：</label>
+    　　　		<input id="name" type="text">
+  　　　		</div>
+  				<div class="item">
+    　　　		<label>値段：</label>
+  					<input type="number" name="price" value="">
+  　　　		</div>
+  				<div class="item">
+    　　　		<label class="label" for="name" name="name">レーベル名：</label>
+    　　　		<input id="name" type="text">
+  　　　		</div>
+  　　　		<div class="item">
+    　　　		<label>発売日：</label>
+  					<input type="date" name="sellday" value="">
+  　　　		</div>
+  　　　		<div class="item">
+  					<label class="label" for="name" name="name">ジャンル：</label>
+    　　　		<select name="pull-down">
+    					<option value="rok">ロック</option>
+    					<option value="jpop">J-POP</option>
+    					<option value="jaz">ジャズ</option>
+  					</select>
+  　　　		</div>
+  				<div class="item">
+    　　　		<label class="label" for="name" name="name">：</label>
+    　　　		<input id="name" type="text">
+  　　　		</div>
+  				<div class="item">
+    　　　		<label>個数：</label>
+  					<input type="number" name="price" value="">
+  　　　		</div>
+    　　　	<input type="submit">
+　　　		</form>
+			</div>
+		</div>
+		<section class="product">
+			<h2 class="product-headline"> 商品一覧 </h2>
+			
+			<div class="product-box">
+
+			
+				<div class="product-item clearfix">
+					
+					<img class="product-image" src="img/neon_night.jpg">
+					
+					<table class="product-text">
+							<tr><td>商品名</td><td>ネオンサイン</td></tr>
+							<tr><td>アーティスト名</td><td>燃え殻</td></tr>
+							<tr><td>値段</td><td>1000円</td></tr>
+							<tr><td>レーベル名</td><td>SonicMusic</td></tr>
+							<tr><td>発売日</td><td>June 19, 2017</td></tr>
+							<tr><td>在庫</td><td>10個</td></tr>
+						  <tr class="category"><td>ジャンル</td><td>J-Pop</td></tr>
+						  <tr><td><a href="product_edit.html">編集</a></td><td><a href="http://www.yahoo.co.jp">削除</a></td></tr>
+
+					</table>
+				</div>
+				<div class="product-item clearfix">
+					<img class="product-image" src="img/boy_screaming.jpg">
+					<table class="product-text">
+							<tr><td>商品名</td><td>ネオンサイン</td></tr>
+							<tr><td>アーティスト名</td><td>燃え殻</td></tr>
+							<tr><td>値段</td><td>1000円</td></tr>
+							<tr><td>レーベル名</td><td>SonicMusic</td></tr>
+							<tr><td>発売日</td><td>June 19, 2017</td></tr>
+							<tr><td>在庫</td><td>10個</td></tr>
+						  <tr class="category"><td>ジャンル</td><td>J-Pop</td></tr>
+						  <tr><td><a href="product_edit.html">編集</a></td><td><a href="http://www.yahoo.co.jp">削除</a></td></tr>
+						  
+					</table>
+				</div>
+				<div class="product-item clearfix">
+					<img class="product-image" src="img/dark_atmosphere.jpg">
+					<table class="product-text">
+							<tr><td>商品名</td><td>ネオンサイン</td></tr>
+							<tr><td>アーティスト名</td><td>燃え殻</td></tr>
+							<tr><td>値段</td><td>1000円</td></tr>
+							<tr><td>レーベル名</td><td>SonicMusic</td></tr>
+							<tr><td>発売日</td><td>June 19, 2017</td></tr>
+							<tr><td>在庫</td><td>10個</td></tr>
+						  <tr class="category"><td>ジャンル</td><td>J-Pop</td></tr>
+						  <tr><td><a href="product_edit.html">編集</a></td><td><a href="http://www.yahoo.co.jp">削除</a></td></tr>
+						  
+					</table>
+				</div>
+				<div class="product-item clearfix">
+					<img class="product-image" src="img/japanese_festival.jpg">
+					<table class="product-text">
+							<tr><td>商品名</td><td>ネオンサイン</td></tr>
+							<tr><td>アーティスト名</td><td>燃え殻</td></tr>
+							<tr><td>値段</td><td>1000円</td></tr>
+							<tr><td>レーベル名</td><td>SonicMusic</td></tr>
+							<tr><td>発売日</td><td>June 19, 2017</td></tr>
+							<tr><td>在庫</td><td>10個</td></tr>
+						  <tr class="category"><td>ジャンル</td><td>J-Pop</td></tr>
+						  <tr><td><a href="product_edit.html">編集</a></td><td><a href="http://www.yahoo.co.jp">削除</a></td></tr>
+						  
+					</table>
+				</div>
+				<div class="product-item clearfix">
+					<img class="product-image" src="img/music_record.jpg">
+					<table class="product-text">
+							<tr><td>商品名</td><td>ネオンサイン</td></tr>
+							<tr><td>アーティスト名</td><td>燃え殻</td></tr>
+							<tr><td>値段</td><td>1000円</td></tr>
+							<tr><td>レーベル名</td><td>SonicMusic</td></tr>
+							<tr><td>発売日</td><td>June 19, 2017</td></tr>
+							<tr><td>在庫</td><td>10個</td></tr>
+						  <tr class="category"><td>ジャンル</td><td>J-Pop</td></tr>
+						  <tr><td><a href="product_edit.html">編集</a></td><td><a href="http://www.yahoo.co.jp">削除</a></td></tr>
+						  
+					</table>
+				</div>
+			</div>
+			<div class="pagination">
+				<p><<</p>
+				<p><</p>
+				<p>1</p>
+				<p>2</p>
+				<p>3</p>
+				<p>></p>
+				<p>>></p>
+			</div>
+		</section>
+		
+
+	</main>
+
+
+	<!-- footer -->
+	<footer>
+		<p class="footer-text"> ©︎ All rights recerved by Omomuki.Inc.</p>
+	</footer>
+</body>
+</html>
