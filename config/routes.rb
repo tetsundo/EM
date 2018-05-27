@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :genres
   resources :songs
   resources :cds
-  resources :admins
   resources :users
   root 'cds#index'
   get 'admins/top' => 'admins#top'
