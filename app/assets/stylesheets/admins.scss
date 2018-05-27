@@ -1,3 +1,33 @@
 // Place all the styles related to the admins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+header {
+	position: relative;
+	width: 100%;
+	padding: 15px 0;
+	margin: 0 auto;
+	text-align: center;
+	background-color: black;
+}
+header .headline{
+	font-size: 32px;
+}
+.nav-list {
+	text-align: center;
+	padding: 10px 0;
+	margin: 0 auto;
+}
+.nav-list-item {
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px;
+}
+footer {
+	text-align: center;
+	padding: 50px 0;
+	background-color: black;
+}
+.footer-text, .nav-text,.header-text {
+	color: white;
+}
