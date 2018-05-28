@@ -30,14 +30,14 @@
 
 
 				<ul class="slide">
-				<li><a href="product_edit.html"><img class="product-image" src="img/neon_night.jpg" ></a></li>
-				<li><img class="release-image" src="img/asiangirl.jpg"></li>
-				<li><img class="release-image" src="img/blackguy.jpg"></li>
-				<li><img class="release-image" src="img/book_shelf.jpg"></li>
-				<li><img class="release-image" src="img/boy_screaming.jpg"></li>
-				<li><img class="release-image" src="img/alice.jpg"></li>
-				<li><img class="release-image" src="img/headphone.jpg"></li>
-				<li><img class="release-image" src="img/cutelady.jpg"></li>
+				<li><a href="product_edit.html"><img class="release-image" src="/assets/neon_night.jpg" ></a></li>
+				<li><img class="release-image" src="/assets/asiangirl.jpg"></li>
+				<li><img class="release-image" src="/assets/blackguy.jpg"></li>
+				<li><img class="release-image" src="/assets/book_shelf.jpg"></li>
+				<li><img class="release-image" src="/assets/boy_screaming.jpg"></li>
+				<li><img class="release-image" src="/assets/alice.jpg"></li>
+				<li><img class="release-image" src="/assets/headphone.jpg"></li>
+				<li><img class="release-image" src="/assets/cutelady.jpg"></li>
 				</ul>
 				<br clear="all">
 	<!-- main -->
@@ -45,48 +45,8 @@
 		
 		<div class="sidebar">
 			<h2 class="sidebar-headline">商品追加</h2>
-			<div class="new-form">
-				<form class="contact-form" action="//www-creators.com/rsc/receiver.php" method="post">
-  　　　		<p>商品情報</p>
-  　　　		<div class="item">
-    　　　		<label class="label" for="name" name="name">商品名：</label>
-    　　　		<input id="name" type="text">
-  　　　		</div>
-  　　　		<div class="item">
-    　　　		<label class="label" for="name" name="name">アーティスト名：</label>
-    　　　		<input id="name" type="text">
-  　　　		</div>
-  				<div class="item">
-    　　　		<label>値段：</label>
-  					<input type="number" name="price" value="">
-  　　　		</div>
-  				<div class="item">
-    　　　		<label class="label" for="name" name="name">レーベル名：</label>
-    　　　		<input id="name" type="text">
-  　　　		</div>
-  　　　		<div class="item">
-    　　　		<label>発売日：</label>
-  					<input type="date" name="sellday" value="">
-  　　　		</div>
-  　　　		<div class="item">
-  					<label class="label" for="name" name="name">ジャンル：</label>
-    　　　		<select name="pull-down">
-    					<option value="rok">ロック</option>
-    					<option value="jpop">J-POP</option>
-    					<option value="jaz">ジャズ</option>
-  					</select>
-  　　　		</div>
-  				<div class="item">
-    　　　		<label class="label" for="name" name="name">：</label>
-    　　　		<input id="name" type="text">
-  　　　		</div>
-  				<div class="item">
-    　　　		<label>個数：</label>
-  					<input type="number" name="price" value="">
-  　　　		</div>
-    　　　	<input type="submit">
-　　　		</form>
-			</div>
+			<%= render'songs/news', cd:@cd %>
+
 		</div>
 		<section class="product">
 			<h2 class="product-headline"> 商品一覧 </h2>

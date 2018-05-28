@@ -81,3 +81,6 @@ gem 'devise'
 gem 'bootstrap-sass'
 
 gem 'jquery-rails'
+
+
+gem 'nested_form_fields'
