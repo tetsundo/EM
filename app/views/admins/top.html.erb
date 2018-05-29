@@ -50,83 +50,16 @@
 		</div>
 		<section class="product">
 			<h2 class="product-headline"> 商品一覧 </h2>
-			
-			<div class="product-box">
+    			<% @cds.each do |cd| %>
+            			<dl>
+            				<dd><div><%= attachment_image_tag cd, :image, :fill, 60, 60, format: 'jpg',fallback: "no_image.jpg", class: "release-image" %></div></dd>
 
-			
-				<div class="product-item clearfix">
-					
-					<img class="product-image" src="img/neon_night.jpg">
-					
-					<table class="product-text">
-							<tr><td>商品名</td><td>ネオンサイン</td></tr>
-							<tr><td>アーティスト名</td><td>燃え殻</td></tr>
-							<tr><td>値段</td><td>1000円</td></tr>
-							<tr><td>レーベル名</td><td>SonicMusic</td></tr>
-							<tr><td>発売日</td><td>June 19, 2017</td></tr>
-							<tr><td>在庫</td><td>10個</td></tr>
-						  <tr class="category"><td>ジャンル</td><td>J-Pop</td></tr>
-						  <tr><td><a href="product_edit.html">編集</a></td><td><a href="http://www.yahoo.co.jp">削除</a></td></tr>
-
-					</table>
-				</div>
-				<div class="product-item clearfix">
-					<img class="product-image" src="img/boy_screaming.jpg">
-					<table class="product-text">
-							<tr><td>商品名</td><td>ネオンサイン</td></tr>
-							<tr><td>アーティスト名</td><td>燃え殻</td></tr>
-							<tr><td>値段</td><td>1000円</td></tr>
-							<tr><td>レーベル名</td><td>SonicMusic</td></tr>
-							<tr><td>発売日</td><td>June 19, 2017</td></tr>
-							<tr><td>在庫</td><td>10個</td></tr>
-						  <tr class="category"><td>ジャンル</td><td>J-Pop</td></tr>
-						  <tr><td><a href="product_edit.html">編集</a></td><td><a href="http://www.yahoo.co.jp">削除</a></td></tr>
-						  
-					</table>
-				</div>
-				<div class="product-item clearfix">
-					<img class="product-image" src="img/dark_atmosphere.jpg">
-					<table class="product-text">
-							<tr><td>商品名</td><td>ネオンサイン</td></tr>
-							<tr><td>アーティスト名</td><td>燃え殻</td></tr>
-							<tr><td>値段</td><td>1000円</td></tr>
-							<tr><td>レーベル名</td><td>SonicMusic</td></tr>
-							<tr><td>発売日</td><td>June 19, 2017</td></tr>
-							<tr><td>在庫</td><td>10個</td></tr>
-						  <tr class="category"><td>ジャンル</td><td>J-Pop</td></tr>
-						  <tr><td><a href="product_edit.html">編集</a></td><td><a href="http://www.yahoo.co.jp">削除</a></td></tr>
-						  
-					</table>
-				</div>
-				<div class="product-item clearfix">
-					<img class="product-image" src="img/japanese_festival.jpg">
-					<table class="product-text">
-							<tr><td>商品名</td><td>ネオンサイン</td></tr>
-							<tr><td>アーティスト名</td><td>燃え殻</td></tr>
-							<tr><td>値段</td><td>1000円</td></tr>
-							<tr><td>レーベル名</td><td>SonicMusic</td></tr>
-							<tr><td>発売日</td><td>June 19, 2017</td></tr>
-							<tr><td>在庫</td><td>10個</td></tr>
-						  <tr class="category"><td>ジャンル</td><td>J-Pop</td></tr>
-						  <tr><td><a href="product_edit.html">編集</a></td><td><a href="http://www.yahoo.co.jp">削除</a></td></tr>
-						  
-					</table>
-				</div>
-				<div class="product-item clearfix">
-					<img class="product-image" src="img/music_record.jpg">
-					<table class="product-text">
-							<tr><td>商品名</td><td>ネオンサイン</td></tr>
-							<tr><td>アーティスト名</td><td>燃え殻</td></tr>
-							<tr><td>値段</td><td>1000円</td></tr>
-							<tr><td>レーベル名</td><td>SonicMusic</td></tr>
-							<tr><td>発売日</td><td>June 19, 2017</td></tr>
-							<tr><td>在庫</td><td>10個</td></tr>
-						  <tr class="category"><td>ジャンル</td><td>J-Pop</td></tr>
-						  <tr><td><a href="product_edit.html">編集</a></td><td><a href="http://www.yahoo.co.jp">削除</a></td></tr>
-						  
-					</table>
-				</div>
-			</div>
+            			<dt>Title<%=cd.jacket_name %></dt>
+              			<dd>発売日<%=  cd.release_date %></dd>
+              			<dd>アーティスト<%=  cd.artist_name %></dd>
+              			<dd>価格<%=  cd.price %></dd>
+    							</dl>
+    							<% end %>
 			<div class="pagination">
 				<p><<</p>
 				<p><</p>
