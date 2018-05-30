@@ -1,3 +1,3 @@
 class Sold < ApplicationRecord
-	has_many: sold_items
+	has_many :sold_items
 end
