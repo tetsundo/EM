@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
  devise_for :admins
   devise_for :users
-  resources :carts
-  resources :solds
-  resources :genres
-  resources :songs
+  resources :carts, only: [:show, :create, :update, :destroy]
+  resources :solds, only: [:index, :show]
+  resources :genres, only: [:show]
+  resources :songs, only: [:new, :create]
   resources :cds
-  # resources :admins
-  resources :users
+  resources :admins, only: [:edit]
+  resources :users, only: [:show, :edit, :update, :destroy]
   root 'cds#index'
   get 'admins/top' => 'admins#top'
   get 'carts/purchase' => 'carts#purchase'
