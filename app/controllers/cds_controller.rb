@@ -3,7 +3,7 @@ class CdsController < ApplicationController
   	cd = Cd.new(cd_params)
   	if cd.save
   		flash[:success] = "新しくCDを追加しました"
-  		redirect_to admins_top_path(current_admin.id)
+  		redirect_to admins_top_path
   	else
   		flash[:success] = "失敗しました"
   		@cd = Cd.new
