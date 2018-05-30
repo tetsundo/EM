@@ -1,49 +1,35 @@
     <%= form_for(cd) do |f| %>
 <div class="form-group">
-  <%= f.label :jacket_name, class: "control-label col-sm-2" %>
-  <span class="col-sm-10">
-    <%= f.text_field :jacket_name, class: "form-control" %>
-  </span>
+  <%= f.label :jacket_name, "ジャケット"%>
+    <%= f.text_field :jacket_name, class: "form-control", placeholder: "Enter Jacket" %>
 </div>
-<div class="field">
+<div class="form-group">
         <%= f.label :image %>
         <%= f.attachment_field :image %>
     </div>
 <div class="form-group">
-  <%= f.label :disk, class: "control-label col-sm-2" %>
-  <span class="col-sm-10">
-    <%= f.text_field :disk, class: "form-control" %>
-  </span>
+  <%= f.label :disk %>
+    <%= f.text_field :disk, class: "form-control", placeholder: "Enter Disk" %>
 </div>
 <div class="form-group">
-  <%= f.label :remaining_quantity, class: "control-label col-sm-2" %>
-  <span class="col-sm-10">
-    <%= f.number_field :remaining_quantity, class: "form-control" %>
-  </span>
+  <%= f.label :remaining_quantity, "在庫" %>
+    <%= f.number_field :remaining_quantity, class: "form-control", placeholder: "Enter Quantiy" %>
 </div>
 <div class="form-group">
-  <%= f.label :release_date, class: "control-label col-sm-2" %>
-  <span class="col-sm-10">
-    <%= f.date_field :release_date, class: "form-control" %>
-  </span>
+  <%= f.label :release_date, "発売日" %>
+    <%= f.date_field :release_date, class: "form-control", placeholder: "Enter Release Date" %>
 </div>
 <div class="form-group">
-  <%= f.label :rabel_name, class: "control-label col-sm-2" %>
-  <span class="col-sm-10">
-    <%= f.text_field :rabel_name, class: "form-control" %>
-  </span>
+  <%= f.label :rabel_name, "レーベル"%>
+    <%= f.text_field :rabel_name, class: "form-control", placeholder: "Enter Rabel" %>
 </div>
 <div class="form-group">
-  <%= f.label :artist_name, class: "control-label col-sm-2" %>
-  <span class="col-sm-10">
-    <%= f.text_field :artist_name, class: "form-control" %>
-  </span>
+  <%= f.label :artist_name, "アーティスト" %>
+    <%= f.text_field :artist_name, class: "form-control", placeholder: "Enter Artist" %>
 </div>
 <div class="form-group">
-  <%= f.label :price, class: "control-label col-sm-2" %>
-  <span class="col-sm-10">
-    <%= f.number_field :price, class: "form-control" %>
-  </span>
+  <%= f.label :price, "価格" %>
+    <%= f.number_field :price, class: "form-control", placeholder: "Enter Price"%>円
 </div>
 
 <div class="field">
@@ -56,7 +42,7 @@
       </tr>
       <%= f.nested_fields_for :songs, wrapper_tag: :tr do |q| %>
           <td><%= q.number_field :order, class: 'form-control' %></td>
-          <td><%= q.text_field   :song_name,     class: 'form-control' %></td>
+          <td><%= q.text_field   :song_name,     class: 'form-control', placeholder: "Enter Song Name" %></td>
           <td><%= q.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %></td>
       <% end %>
     </tbody>
