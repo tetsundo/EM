@@ -12,8 +12,7 @@
     <p>Disk<%= @cd.disk %></p>
     <ul>
     <% @songs.each do |song| %>
-		<li><%= song.order %></li>
-		<li><%= song.song_name %></li>
+		<li><%= song.order %>.<%= song.song_name %></li>
     <% end %>
   </ul>
   
