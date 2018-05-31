@@ -265,3 +265,10 @@ footer {
 	float:left;
 	padding: 10px 50px;
 }
+.cd-show {
+	width: 50%;
+	margin: 0 auto;
+}
+.main-contents{
+	width: 100%;
+}
