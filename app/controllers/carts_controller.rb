@@ -5,7 +5,7 @@ class CartsController < ApplicationController
   def create
   end
 
-  def apdate
+  def update
   end
 
   def purchase
