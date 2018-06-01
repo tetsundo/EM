@@ -3,6 +3,8 @@ class GenresController < ApplicationController
   end
 
   def show
+    @gernre = Genre.find(params[:id])
+    @cds = @genre.cds
   end
 
   def edit
