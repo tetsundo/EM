@@ -19,7 +19,7 @@
 </div>
 <%= form_for(@cart_item) do |l| %>
         <%= l.hidden_field :cart_id, id: "cart_id_#{product.id}" %>
-        <%= l.hidden_field :cd_id, id: "product_id_#{product.id}"%>
+        <%= l.hidden_field :product_id, id: "product_id_#{product.id}"%>
         <%= l.submit "カートに入れる" %>
       <% end %>
 
