@@ -16,6 +16,10 @@
 		<li><%= song.order %>.<%= song.song_name %></li>
     <% end %>
   </ul>
-  
 </div>
+<%= form_for @cart_item, url:carts_path do |l| %>
+        <%= l.hidden_field :cart_id, id: "cart_id_#{@cd.id}" %>
+        <%= l.hidden_field :cd_id, id: "cd_id_#{@cd.id}"%>
+        <%= l.submit "カートに入れる" %>
+      <% end %>
 

@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
   <header class="clearfix">
@@ -14,26 +15,26 @@
     <div class="kensaku">。。このWebsiteを検索</div>
     <% if user_signed_in? %>
       <div class="box">
-        <a href="cart.html"><i class="fa fa-shopping-cart cart"></i></a>
+        <a href="/carts/:id"><i class="fa fa-shopping-cart cart"></i></a>
         <div class="kon">
           <i class="fa fa-user-circle usericon"></i>
-          <p class="name"><a href="mypage.html">脇坂翔さん</a></p>
+          <p class="name"><a href="/users/:id">脇坂翔さん</a></p>
         </div>
       </div>
     <% else %>
       <div class="login-signup">
-        <p class="lo-si"><a href="header.after.html">Login</a></p>
-        <p class="lo-si"><a href="#">Sign up</a></p>
+        <p class="lo-si"><a href="/users/sign_in">Login</a></p>
+        <p class="lo-si"><a href="/users/sign_up">Sign up</a></p>
       </div>
     <% end %>
   </header>
   <nav>
     <div class="nav-box">
       <ul class="ul"><a href="genre.html">Jpop</a></ul>
-      <ul class="ul"><a href="#">Kpop</a></ul>
-      <ul class="ul"><a href="#">Rock</a></ul>
-      <ul class="ul"><a href="#">洋楽</a></ul>
-      <ul class="ul"><a href="#">演歌</a></ul>
+      <ul class="ul"><a href="/genres/:id">Kpop</a></ul>
+      <ul class="ul"><a href="/genres/:id">Rock</a></ul>
+      <ul class="ul"><a href="/genres/:id">洋楽</a></ul>
+      <ul class="ul"><a href="/genres/:id">演歌</a></ul>
     </div>
   </nav>
   <%= yield %>
