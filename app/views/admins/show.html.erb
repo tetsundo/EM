@@ -1,0 +1,20 @@
+<div class = "cd-show clearfix">
+	<div class = "cd-show-header"><h2><%=  @cd.artist_name %></h2></div>
+	<div class="main-contents clearfix">
+  <dl>
+    <dd><%= attachment_image_tag @cd, :image, :fill, 60, 60, format: 'jpg',fallback: "no_image.jpg", class: "index-image" %></dd>
+
+    <dt>ジャケット：<%= @cd.jacket_name %></dt>
+    <dd>発売日：<%=  @cd.release_date %></dd>
+    <dd>価格：<%=  @cd.price %>円</dd>
+    </dl>
+    </div>
+    <p>Disk<%= @cd.disk %></p>
+    <ul>
+    <% @songs.each do |song| %>
+		<li><%= song.order %>.<%= song.song_name %></li>
+    <% end %>
+  </ul>
+  
+</div>
+

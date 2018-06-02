@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   root 'cds#index'
   get 'admins/top' => 'admins#top'
   get 'carts/purchase' => 'carts#purchase'
+  get 'admins/cds/show/:id' => 'admins#show', as: 'admins_cd'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
