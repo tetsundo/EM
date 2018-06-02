@@ -45,7 +45,7 @@
 		
 		<div class="sidebar">
 			<h2 class="sidebar-headline">商品追加</h2>
-			<%= render'songs/news', cd:@cd %>
+			<%= render'songs/news', cd:@cd, genres:@genres %>
 
 		</div>
 		<section class="product">
@@ -54,9 +54,9 @@
     			<% @cds.each do |cd| %>
     			<div class = "cds-index">
            <dl>
-            <dd><div><%= attachment_image_tag cd, :image, :fill, 60, 60, format: 'jpg',fallback: "no_image.jpg", class: "index-image" %></div></dd>
+            <dd><%= attachment_image_tag cd, :image, :fill, 60, 60, format: 'jpg',fallback: "no_image.jpg", class: "index-image" %></dd>
 
-           <dt>ジャケット：<%=cd.jacket_name %></dt>
+           <dt>ジャケット：<%= link_to cd.jacket_name, cd_path(cd.id) %></dt>
              <dd>発売日：<%=  cd.release_date %></dd>
              <dd>アーティスト：<%=  cd.artist_name %></dd>
              <dd>価格：<%=  cd.price %>円</dd>

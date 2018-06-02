@@ -1,59 +1,21 @@
-<body>
-	<section id="show">
-		<div class="left-content">
-			<div class="content-item">
-				<img src="img/my-icon.jpg" class="show-image">
-				<p>ジャンル</p>
-				<p>レーベル名</p>
-				<div class="btn-group">
-					<a href="#" class="square_btn">カートに入れる</a>
-				</div>
-			</div>
-		</div>
-		<div class="right-content">
-			<div class="content-item clearfix">
-				<div class="show-title clearfix">
-					<div class="left-item">
-						<h1>シングル/アルバム名</h1>
-						<p>アーティスト名</p>
-					</div>
-					<div class="right-item">
-						<p>値段</p>
-						<p>在庫数</p>
-						<p>カートに入れる</p>
-					</div>
-				</div>
-				<p><br></p>
-				<table>
-					<thead>
-						<tr>
-							<th>曲名</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1.</td>
-							<td>タイトル</td>
-						</tr>
-						<tr>
-							<td>2.</td>
-							<td>タイトル</td>
-						</tr>
-						<tr>
-							<td>3.</td>
-							<td>タイトル</td>
-						</tr>
-						<tr>
-							<td>4.</td>
-							<td>タイトル</td>
-						</tr>
-						<tr>
-							<td>5.</td>
-							<td>タイトル</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</section>
-</body>
+
+<div class = "cd-show clearfix">
+	<div class = "cd-show-header"><h2><%=  @cd.artist_name %></h2></div>
+	<div class="main-contents clearfix">
+  <dl>
+    <dd><%= attachment_image_tag @cd, :image, :fill, 60, 60, format: 'jpg',fallback: "no_image.jpg", class: "index-image" %></dd>
+
+    <dt>ジャケット：<%= @cd.jacket_name %></dt>
+    <dd>発売日：<%=  @cd.release_date %></dd>
+    <dd>価格：<%=  @cd.price %>円</dd>
+    </dl>
+    </div>
+    <p>Disk<%= @cd.disk %></p>
+    <ul>
+    <% @songs.each do |song| %>
+		<li><%= song.order %>.<%= song.song_name %></li>
+    <% end %>
+  </ul>
+  
+</div>
+
