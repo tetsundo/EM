@@ -1,2 +1,30 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>マイページ</h1>
+<table class="table">
+	<tr>
+		<td>Name</td>
+		<td><%= @user.last_name %><%= @user.first_name %></td>
+	</tr>
+	<tr>
+		<td>カナ</td>
+		<td><%= @user.last_name_kana %><%= @user.first_name_kana %></td>
+	</tr>
+	<tr>
+		<td>Tell</td>
+		<td><%= @user.tell_number %></td>
+	</tr>
+	<tr>
+		<td>Address</td>
+		<td><%= @user.address %></td>
+	</tr>
+		<tr>
+		<td>PostCode</td>
+		<td><%= @user.post_code %></td>
+	</tr>
+	<tr>
+		<td>Address</td>
+		<td><%= @user.address %></td>
+	</tr>
+
+</table>
+<p><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></p>
+
