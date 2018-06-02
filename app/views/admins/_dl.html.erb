@@ -1,0 +1,8 @@
+
+  <dl>
+    <dd><%= attachment_image_tag cd, :image, :fill, 60, 60, format: 'jpg',fallback: "no_image.jpg", class: "index-image" %></dd>
+      <dt>ジャケット：<%= link_to cd.jacket_name, admins_cd_path(cd.id) %></dt>
+      <dd>発売日：<%=  cd.release_date %></dd>
+      <dd>アーティスト：<%=  cd.artist_name %></dd>
+      <dd>価格：<%=  cd.price %>円</dd>
+ 	</dl>

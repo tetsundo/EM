@@ -1,0 +1,6 @@
+<% if @status == 'success' %>
+$("tbody").append("<%= j(render("admins/dl", cd: @cd)) %>");
+<% elsif @status == 'fail' %>
+alert('error!');
+<% end %>
+$("#cd-modal").modal("hide”);

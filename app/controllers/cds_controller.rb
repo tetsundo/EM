@@ -1,15 +1,26 @@
 class CdsController < ApplicationController
+  def new
+    @cd = Cd.new
+    # respond_to do |format| 
+    #         format.html{ redirect_to admins_top_path, notice: 'Cd was successfully created.' }
+    #         format.js {} 
+    #     end
+    @cd.songs.build
+  end
   def create
-  	cd = Cd.new(cd_params)
-  	if cd.save
-  		flash[:success] = "新しくCDを追加しました"
-  		redirect_to admins_top_path
-  	else
-  		flash[:success] = "失敗しました"
-  		@cd = Cd.new
-  		@cd.songs.build
-  		render 'admins/top'
-  	end
+  	@cd = Cd.new(cd_params)
+
+    respond_to do |format|
+      if @cd.save
+        format.html { redirect_to admins_top_path, notice: 'Cd was successfully created.' }
+        format.json { render :show, status: :created, location: @cd }
+        format.js { @status = "success"}
+      else
+        format.html { render :new }
+        format.json { render json: @cd.errors, status: :unprocessable_entity }
+        format.js { @status = "fail" }
+      end
+    end
   end
 
   def show
