@@ -15,7 +15,7 @@ class CdsController < ApplicationController
   def show
     @cd = Cd.find(params[:id])
     @songs = @cd.songs.all
-    @cart_item = Cart_item.new
+    @cart_item = CartItem.new
   end
 
   def index
