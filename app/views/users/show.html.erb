@@ -1,30 +1,58 @@
-<h1>マイページ</h1>
-<table class="table">
-	<tr>
-		<td>Name</td>
-		<td><%= @user.last_name %><%= @user.first_name %></td>
-	</tr>
-	<tr>
-		<td>カナ</td>
-		<td><%= @user.last_name_kana %><%= @user.first_name_kana %></td>
-	</tr>
-	<tr>
-		<td>Tell</td>
-		<td><%= @user.tell_number %></td>
-	</tr>
-	<tr>
-		<td>Address</td>
-		<td><%= @user.address %></td>
-	</tr>
-		<tr>
-		<td>PostCode</td>
-		<td><%= @user.post_code %></td>
-	</tr>
-	<tr>
-		<td>Address</td>
-		<td><%= @user.address %></td>
-	</tr>
 
-</table>
-<p><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></p>
+<div class="container">
+	<h1>My page</h1>
+	<div class="row">
+		<div class="col-lg-4">
+
+			<table class="table">
+				<tr>
+					<td>Name</td>
+					<td><%= @user.last_name %><%= @user.first_name %></td>
+				</tr>
+				<tr>
+					<td>カナ</td>
+					<td><%= @user.last_name_kana %><%= @user.first_name_kana %></td>
+				</tr>
+				<tr>
+					<td>Tell</td>
+					<td><%= @user.tell_number %></td>
+				</tr>
+				</tr>
+					<tr>
+					<td>Email</td>
+					<td><%= @user.email %></td>
+				</tr>
+				<tr>
+					<td>Address</td>
+					<td><%= @user.address %></td>
+				</tr>
+					<tr>
+					<td>PostCode</td>
+					<td><%= @user.post_code %></td>
+				</tr>
+			</table>
+
+			<%= link_to  edit_user_path(@user) do %>
+				 <button type="button" class="btn btn-default btn-block">
+				    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+				 </button>
+			<% end %>
+			<br>
+			<%= link_to  destroy_user_session_path, method: :delete do %>
+				 <button type="button" class="btn btn-default btn-block">
+				    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+				    <span>Logout</span>
+				 </button>
+			<% end %>
+			<br>
+			<br>
+		</div>
+
+		<div class="col-lg-8">
+			<h2>購入履歴</h2>
+		</div>
+	</div>
+</div>
+
+
 
