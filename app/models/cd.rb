@@ -3,4 +3,5 @@ class Cd < ApplicationRecord
 	attachment :image
 	accepts_nested_attributes_for :songs, allow_destroy: true
 	belongs_to :genre, inverse_of: :cds
+	has_many :cart_items
 end
