@@ -3,6 +3,7 @@ class AdminsController < ApplicationController
   	@cd = Cd.new
   	@cd.songs.build
   	@cds = Cd.all
+  	@genres = Genre.all
   end
 
   def edit

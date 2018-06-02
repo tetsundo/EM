@@ -14,6 +14,7 @@ class CdsController < ApplicationController
 
   def show
     @cd = Cd.find(params[:id])
+    @songs = @cd.songs.all
   end
 
   def index
@@ -23,7 +24,7 @@ class CdsController < ApplicationController
 private
 
   def cd_params
-    params.require(:cd).permit(:jacket_name,:image,:disk,:remaining_quantity,:release_date,:rabel_name,:artist_name,:price,
+    params.require(:cd).permit(:genre_id,:jacket_name,:image,:disk,:remaining_quantity,:release_date,:rabel_name,:artist_name,:price,
         songs_attributes: [:id,:song_name,:order,:_destroy])
   end
 
