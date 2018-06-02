@@ -3,11 +3,13 @@
 		<div class="container">
 			<h2 class="heading">CD一覧</h2>
 			<div class="production-group clearfix">
+				<% @cds.each do |book| %>
 				<div class="production-content">
 					<img src="img/logo.png" class="production">
 					<p>シングル/アルバム名</p>
-					<p>アーティスト名</p>
+					<p><%= book.body %></p>
 				</div>
+				<% end %>
 				<div class="production-content">
 					<div class="production bg-1"></div>
 					<p>シングル/アルバム名</p>
