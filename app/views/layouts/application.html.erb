@@ -18,7 +18,7 @@
         <a href="/carts/:id"><i class="fa fa-shopping-cart cart"></i></a>
         <div class="kon">
           <i class="fa fa-user-circle usericon"></i>
-          <p class="name"><a href="/users/:id">脇坂翔さん</a></p>
+          <p class="name"><%= link_to current_user.last_name, user_path(current_user) %></p>
         </div>
       </div>
     <% else %>
