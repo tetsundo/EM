@@ -1,6 +1,6 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
-    <%= form_for(@cd, remote: true) do |f| %>
+    <%= form_for(@cd) do |f| %>
 
     <% if @cd.errors.any? %>
     <div id="error_explanation">
@@ -22,7 +22,7 @@
     <div class="modal-body">
       <div class="form-group field">
       <%= f.label :"ジャンル" %>
-      <%= f.select :genre_id,  [["J-POP", 1],["JAZZ", 2]]  %>
+      <%= f.select :genre_id,  [["J-POP", 1],["ROCK", 2],["JAZZ", 3],["演歌", 4]]  %>
       </div>
       <div class="form-group">
         <%= f.label :jacket_name, "ジャケット", class: "form-control-label"%>
@@ -76,8 +76,8 @@
       </div>
     </div>
     <div class="modal-footer actions">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <%= f.submit "CDを登録", class: "btn btn-primary"%>
+      <button type="button" class="btn btn-secondary">Close</button>
+      <%= f.submit "CDを登録", class: "btn btn-primary" %>
     </div>
     <% end %>
   </div>
