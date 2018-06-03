@@ -68,10 +68,7 @@ main {
 	margin: 0 auto;
 	padding: 70px 0;
 }
-.sidebar {
-    width: 35%;
-    float: left;
-}
+
 .sidebar-headline, .product-headline {
 	text-align: center;
 }
@@ -129,7 +126,7 @@ input[type=submit]:hover{
 }
 .product {
     width: 65%;
-    float: left;
+    margin: 0 auto;
 }
 .product-box {
     padding-top: 50px;

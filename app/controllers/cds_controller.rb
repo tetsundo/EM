@@ -10,17 +10,12 @@ class CdsController < ApplicationController
   def create
   	@cd = Cd.new(cd_params)
 
-    respond_to do |format|
       if @cd.save
-        format.html { redirect_to admins_top_path, notice: 'Cd was successfully created.' }
-        format.json { render :show, status: :created, location: @cd }
-        format.js { @status = "success"}
+        redirect_to admins_top_path
       else
-        format.html { render :new }
-        format.json { render json: @cd.errors, status: :unprocessable_entity }
-        format.js { @status = "fail" }
+      @cds = Cd.all.order(created_at: 'desc')
+      render admins_top_path
       end
-    end
   end
 
   def show

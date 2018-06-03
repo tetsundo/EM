@@ -1,7 +1,7 @@
 class AdminsController < ApplicationController
   def top
-  	@cds = Cd.all
-  	@genres = Genre.all
+  	@cds = Cd.all(created_at: 'desc')
+  	
   end
 
   def edit

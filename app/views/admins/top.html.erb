@@ -42,18 +42,19 @@
 				<br clear="all">
 	<!-- main -->
 	<main class="clearfix">
-		
-		<div class="sidebar">
-			<h2 class="sidebar-headline">商品追加</h2>
 			<%= link_to 'New CD', new_cd_path,remote: true, class: "btn btn-lg btn-primary" %>
 			<div class="modal fade" id="cd-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
-
-		</div>
 		<section class="product">
 			<h2 class="product-headline"> 商品一覧 </h2>
 			<% @cds.each do |cd| %>
 				<div class = "cds-index">
-					<%= render'dl', cd: cd %>
+					<dl>
+    				<dd><%= attachment_image_tag cd, :image, :fill, 60, 60, format: 'jpg',fallback: "no_image.jpg", class: "index-image" %></dd>
+     				 <dt>ジャケット：<%= link_to cd.jacket_name, admins_cd_path(cd.id) %></dt>
+      				<dd>発売日：<%=  cd.release_date %></dd>
+      				<dd>アーティスト：<%=  cd.artist_name %></dd>
+      				<dd>価格：<%=  cd.price %>円</dd>
+ 					</dl>
     		</div>
 			<% end %>
     		

@@ -4,4 +4,13 @@ class Cd < ApplicationRecord
 	accepts_nested_attributes_for :songs, allow_destroy: true
 	belongs_to :genre, inverse_of: :cds
 	has_many :cart_items
+	with_options presence: true do
+	validates :jacket_name
+	validates :genre_id
+	validates :remaining_quantity
+	validates :disk
+	validates :price
+	validates :release_date
+	validates :rabel_name
+	end
 end
