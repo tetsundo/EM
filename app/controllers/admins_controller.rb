@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
   def top
-  	@cds = Cd.all(created_at: 'desc')
+  	@cds = Cd.all.order(created_at: 'desc')
   	
   end
 

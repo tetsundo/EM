@@ -42,7 +42,7 @@
 				<br clear="all">
 	<!-- main -->
 	<main class="clearfix">
-			<%= link_to 'New CD', new_cd_path,remote: true, class: "btn btn-lg btn-primary" %>
+			<%= link_to 'New CD', new_admin_cd_path(current_admin.id),remote: true, class: "btn btn-lg btn-primary" %>
 			<div class="modal fade" id="cd-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 		<section class="product">
 			<h2 class="product-headline"> 商品一覧 </h2>
