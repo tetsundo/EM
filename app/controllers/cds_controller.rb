@@ -11,10 +11,10 @@ class CdsController < ApplicationController
   	@cd = Cd.new(cd_params)
 
       if @cd.save
-        redirect_to admins_top_path
+        redirect_to admin_top_path
       else
       @cds = Cd.all.order(created_at: 'desc')
-      render admins_top_path
+      render admin_top_path
       end
   end
 

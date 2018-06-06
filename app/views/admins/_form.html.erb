@@ -1,6 +1,6 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
-    <%= form_for(@cd) do |f| %>
+    <%= form_for @cd, url: admin_cds_path do |f| %>
 
     <% if @cd.errors.any? %>
     <div id="error_explanation">
