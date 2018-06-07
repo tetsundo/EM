@@ -1,16 +1,27 @@
 class UsersController < ApplicationController
   def show
-  	@user = current_user
+  	@user = User.find(params[:id])
   end
 
   def edit
-  	@user = current_user
+  	@user = User.find(params[:id])
   end
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      if user_signed_in?
+        redirect_to user_path(@user.id)
+      else
+        render "show"
+      end
+    else
+        render "edit"
+  end
+
+  def index
+    @users = User.all
+
   end
 
   private

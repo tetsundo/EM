@@ -19,8 +19,9 @@
 					<a href="sold_index.html" class="nav-text">購入履歴</a>
 				</li>
 				<li class="nav-list-item">
-					<a href="user_index.html" class="nav-text">User一覧</a>
+					<%= link_to 'User一覧', admin_users_path(current_admin.id), class: "nav-text"	%>
 				</li>
+				<li class="nav-list-item"><%= link_to 'logout', destroy_admin_session_path(current_admin.id), class: "glyphicon glyphicon-log-out nav-text",method: :delete %></li>
 			</ul>
 		</nav>
 	</header>

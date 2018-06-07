@@ -14,11 +14,16 @@ class ApplicationController < ActionController::Base
   end
 
 	def after_sign_in_path_for(resource)
-      cds_path
+      case resource
+      when User
+        cds_path
+      when Admin
+        admin_root_path(current_admin.id)
+  end
   end
 
    def after_sign_out_path_for(resource)
-    	cds_path
+    	root_path
    end
 
 
