@@ -8,18 +8,26 @@
     <dt>ジャケット：<%= @cd.jacket_name %></dt>
     <dd>発売日：<%=  @cd.release_date %></dd>
     <dd>価格：<%=  @cd.price %>円</dd>
+    <% if admin_signed_in? %>
+    <dd><%=link_to 'Edit', edit_admin_cd_path(@cd.id), class: "btn-sm btn-success"%>    <%=link_to 'Destroy',admin_cd_path(current_admin.id), method: :delete, class: "btn-sm btn-danger"%></dd>
+    <% end %>
     </dl>
     </div>
+    
+
     <p>Disk<%= @cd.disk %></p>
     <ul>
     <% @songs.each do |song| %>
 		<li><%= song.order %>.<%= song.song_name %></li>
     <% end %>
-  </ul>
+    </ul>
 </div>
+<% if user_signed_in? %>
 <%= form_for @cart_item, url:carts_path do |l| %>
-        <%= l.hidden_field :cart_id, id: "cart_id_#{@cd.id}" %>
-        <%= l.hidden_field :cd_id, id: "cd_id_#{@cd.id}"%>
-        <%= l.submit "カートに入れる" %>
-      <% end %>
+    <%= l.hidden_field :cart_id, id: "cart_id_#{@cd.id}" %>
+    <%= l.hidden_field :cd_id, id: "cd_id_#{@cd.id}"%>
+    <%= l.submit "カートに入れる" %>
+<% end %>
+<% end %>
+<%=link_to 'Topに戻る', admin_root_path(current_admin.id) %>
 

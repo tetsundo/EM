@@ -11,10 +11,10 @@ class CdsController < ApplicationController
   	@cd = Cd.new(cd_params)
 
       if @cd.save
-        redirect_to admin_top_path
+        redirect_to admin_root_path(current_admin.id)
       else
       @cds = Cd.all.order(created_at: 'desc')
-      render admin_top_path
+      render admin_root_path(current_admin.id)
       end
   end
 
@@ -26,6 +26,23 @@ class CdsController < ApplicationController
 
   def index
     @cds = Cd.all
+  end
+
+  def edit
+    @cd = Cd.find(params[:id])
+  end
+
+  def update
+    cd = Cd.find(params[:id])
+    cd.update(cd_params)
+    redirect_to admin_cd_path
+
+  end
+
+  def destroy
+    cd = Cd.find(params[:id])
+    cd.destroy
+    redirect_to admin_root_path(current_admin.id)
   end
 
 private
