@@ -3,12 +3,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_cart
+  before_action :current_cart
 
   def current_cart
     if session[:cart_id]
       @cart = Cart.find(session[:cart_id])
     else
-      @cart = Cart.create
+      @cart = Cart.create(user_id: current_user.id)
       session[:cart_id] = @cart.id
     end
   end
