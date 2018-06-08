@@ -13,7 +13,6 @@
     <% end %>
     </dl>
     </div>
-    
 
     <p>Disk<%= @cd.disk %></p>
     <ul>
@@ -23,11 +22,10 @@
     </ul>
 </div>
 <% if user_signed_in? %>
-<%= form_for @cart_item, url:carts_path do |l| %>
-    <%= l.hidden_field :cart_id, id: "cart_id_#{@cd.id}" %>
-    <%= l.hidden_field :cd_id, id: "cd_id_#{@cd.id}"%>
-    <%= l.submit "カートに入れる" %>
+<%= form_for [@cd, @cart_item], url:carts_path do |f| %>
+	<%= f.hidden_field :cd_id, :value => @cd.id %>
+    <%= f.number_field :quantity %>
+    <%= f.submit "カートに入れる" %>
 <% end %>
 <% end %>
-<%=link_to 'Topに戻る', admin_root_path(current_admin.id) %>
-
+<%=link_to 'Topに戻る', root_path %>
