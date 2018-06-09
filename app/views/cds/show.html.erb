@@ -11,10 +11,11 @@
     <% if admin_signed_in? %>
     <dd><%=link_to 'Edit', edit_admin_cd_path(@cd.id), class: "btn-sm btn-success"%>    <%=link_to 'Destroy',admin_cd_path(current_admin.id), method: :delete, class: "btn-sm btn-danger"%></dd>
     <% end %>
+    <dd>在庫<%= @cd.remaining_quantity%></dd>
+    
     </dl>
     </div>
-
-    <p>Disk<%= @cd.disk %></p>
+    <h3>Disk<%= @cd.disk %></h3>
     <ul>
     <% @songs.each do |song| %>
 		<li><%= song.order %>.<%= song.song_name %></li>
@@ -22,10 +23,12 @@
     </ul>
 </div>
 <% if user_signed_in? %>
-<%= form_for [@cd, @cart_item], url:carts_path do |f| %>
-	<%= f.hidden_field :cd_id, :value => @cd.id %>
-    <%= f.number_field :quantity %>
-    <%= f.submit "カートに入れる" %>
+    <%= form_for [@cd, @cart_item], url:carts_path do |f| %>
+	   <%= f.hidden_field :cd_id, :value => @cd.id %>
+        <%= f.number_field :quantity %>
+        <%= f.submit "カートに入れる" %>
+    <% end %>
+    <%=link_to 'Topに戻る', root_path %>
+    <% elsif admin_signed_in? %>
+    <%=link_to 'Topに戻る', admin_root_path %>
 <% end %>
-<% end %>
-<%=link_to 'Topに戻る', root_path %>
