@@ -9,7 +9,13 @@ class CartsController < ApplicationController
    @cart_item.user_id = current_user.id
    @cart_item.cart_id = current_cart.id
    @cart_item.price = @cart_item.cd.price * @cart_item.quantity
-   @cart_item.save
+   if @cart_item.quantity < @cart_item.cd.remaining_quantity
+     @cart_item.save
+     redirect_to cd_path(@cart_item.cd_id)
+   else
+     redirect_to cd_path(@cart_item.cd_id), alert: '購入枚数は在庫よりも少なくしてください'
+   end
+
   end
 
   def update
@@ -24,8 +30,9 @@ class CartsController < ApplicationController
   end
 
   def destroy
+  	@cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_to current_cart
+    redirect_to root_path
   end
 
   private
