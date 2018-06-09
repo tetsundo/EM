@@ -1,4 +1,5 @@
 class CdsController < ApplicationController
+  before_action :current_cart
   def new
     @cd = Cd.new
     # respond_to do |format| 
