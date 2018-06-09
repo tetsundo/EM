@@ -6,7 +6,7 @@
 	<!-- header -->
 
 	<!-- main-visual -->
-<h2 style="margin-left: 50px;padding-top: 25px;">New Albums!!</h2>
+<h2 style="margin-left: 50px;">New Albums!!</h2>
 		<!-- <script src="jquery-3.3.1.min.js"></script> -->
       <!-- <script src="app.js"></script> -->
 			<script type="text/javascript">
@@ -15,9 +15,9 @@
     	var clone = $(".slide li:first").clone(true);
     	//li先頭要素のマージンレフトにマイナスを指定しアニメーションさせる
     	$(".slide li:first").animate({
-    	marginLeft : "-100%"
+    	marginLeft : "-50%"
     	}, {
-    	duration : 3500,
+    	duration : 15000,
     	complete : function() {
     	    //処理完了時に先頭要素を削除
     	    $(".slide li:first").remove();
