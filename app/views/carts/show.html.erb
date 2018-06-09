@@ -28,7 +28,7 @@
 			</table>
 			<h3 class="sum">合計金額：6000円</h3>
 			<div class="btn-group">
-				<a href="#" class="square_btn">購入手続きへ</a>
+				<%= link_to "購入手続きへ", cart_purchase_path(current_cart.id) %>
 			</div>
 		</div>
 	</section>

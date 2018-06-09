@@ -19,6 +19,8 @@ class CartsController < ApplicationController
 
   def purchase
   	@cart_items = current_cart.cart_items
+  	@cart = current_cart
+  	@user = current_user
   end
 
   def destroy
