@@ -5,14 +5,16 @@ class ApplicationController < ActionController::Base
   helper_method :current_cart
   # before_action :current_cart
 
-  def current_cart
-    if session[:cart_id]
-      @cart = Cart.find(session[:cart_id])
-    else
-      @cart = Cart.create(user_id: current_user.id)
-      session[:cart_id] = @cart.id
-    end
-  end
+  	def current_cart
+  		if user_signed_in?
+    		if session[:cart_id]
+      			@cart = Cart.find(session[:cart_id])
+    		else
+      			@cart = Cart.create(user_id: current_user.id)
+      			session[:cart_id] = @cart.id
+    		end
+  		end
+  	end
 
 	def after_sign_in_path_for(resource)
       case resource
