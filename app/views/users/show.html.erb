@@ -1,6 +1,6 @@
 
 <div class="container">
-	<h1>My page</h1><%= link_to "User一覧に戻る", admin_users_path(current_admin.id)%>
+	<h1>My page</h1>
 	<div class="row">
 		<div class="col-lg-4">
 
@@ -32,7 +32,7 @@
 				</tr>
 			</table>
 			<% if user_signed_in? %>
-			<%= link_to "", edit_user_path_path(@user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+			<%= link_to "", edit_user_path(@user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 			<% else %>
 			<%= link_to "", edit_admin_user_path(current_admin.id, @user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 			<% end %>
