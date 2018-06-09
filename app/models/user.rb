@@ -6,4 +6,9 @@ class User < ApplicationRecord
   has_one :cart
 
   soft_deletable
+
+#論理削除済みのユーザーが再びログインできないようにする
+  def self.find_for_authentication(warden_conditions)
+    without_soft_destroyed.where(email: warden_conditions[:email]).first
+  end
 end
