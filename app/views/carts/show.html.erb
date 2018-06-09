@@ -26,7 +26,7 @@
 					<% end %>
 				</tbody>
 			</table>
-			<h3 class="sum">合計金額：6000円</h3>
+			<h3 class="sum">合計金額：<%= @total_price %></h3>
 			<div class="btn-group">
 				<%= link_to "購入手続きへ", cart_purchase_path(current_cart.id) %>
 			</div>
