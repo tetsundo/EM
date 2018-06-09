@@ -10,14 +10,16 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      if user_signed_in?
-        redirect_to user_path(@user.id)
-      else
+      if admin_signed_in?
+        redirect_to admin_user_path(current_admin.id, @user.id)
+      elsif user_signed_in?
         render "show"
       end
+    elsif admin_signed_in?
+        redirect_to edit_admin_user_path(current_admin.id, @user.id)
     else
-        render "edit"
-  end
+      render "edit"
+    end
 end
 
   def index

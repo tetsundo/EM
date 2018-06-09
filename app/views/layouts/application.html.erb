@@ -11,8 +11,8 @@
   </head>
   <body>
   <header class="clearfix">
-    <i class="fa fa-facebook-square icon"></i>
-    <div class="kensaku">。。このWebsiteを検索</div>
+    <!-- <i class="fa fa-facebook-square icon"></i> -->
+    <!-- <div class="kensaku">。。このWebsiteを検索</div> -->
     <% if user_signed_in? %>
       <div class="box">
         <a href="/carts/:id"><i class="fa fa-shopping-cart cart"></i></a>
@@ -21,6 +21,21 @@
           <p class="name"><%= link_to current_user.last_name, user_path(current_user) %></p>
         </div>
       </div>
+      <% elsif admin_signed_in? %>
+    <h1 class="headline">
+      <%= link_to "管理者画面", admin_root_path(current_admin.id) %>
+    </h1>
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-list-item">
+          <a href="sold_index.html" class="nav-text">購入履歴</a>
+        </li>
+        <li class="nav-list-item">
+          <%= link_to 'User一覧', admin_users_path(current_admin.id), class: "nav-text" %>
+        </li>
+        <li class="nav-list-item"><%= link_to 'logout', destroy_admin_session_path(current_admin.id), class: "glyphicon glyphicon-log-out nav-text",method: :delete %></li>
+      </ul>
+      </nav>
     <% else %>
       <div class="login-signup">
         <p class="lo-si"><a href="/users/sign_in">Login</a></p>
