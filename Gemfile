@@ -84,3 +84,5 @@ gem 'jquery-rails'
 
 
 gem 'nested_form_fields'
+
+gem 'kakurenbo-puti'
