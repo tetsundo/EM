@@ -44,8 +44,19 @@
 	<main class="clearfix">
 			<%= link_to 'New CD', new_admin_cd_path(current_admin.id),remote: true, class: "btn btn-lg btn-primary" %>
 			<div class="modal fade" id="cd-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
-		<section class="product">
-			<h2 class="product-headline"> 商品一覧 </h2>
+			<div class="production-group clearfix">
+				<% @cds.each do |cd| %>
+				<div class="production-content">
+					<%= link_to(cd) do %>
+          				<%= attachment_image_tag(cd, :image, class:'production' ) %>
+        			<% end %>
+					<p><%= link_to cd.jacket_name, admin_cd_path(current_admin.id, cd.id) %></p>
+					<p><%= cd.artist_name %></p>
+				</div>
+				<% end %>
+			</div>
+
+			<!-- <h2 class="product-headline"> 商品一覧 </h2>
 			<% @cds.each do |cd| %>
 				<div class = "cds-index">
 					<dl>
@@ -56,7 +67,7 @@
       				<dd>価格：<%=  cd.price %>円</dd>
  					</dl>
     		</div>
-			<% end %>
+			<% end %> -->
     		
 			<div class="pagination">
 				<p><<</p>
@@ -67,7 +78,6 @@
 				<p>></p>
 				<p>>></p>
 			</div>
-		</section>
 		
 
 	</main>

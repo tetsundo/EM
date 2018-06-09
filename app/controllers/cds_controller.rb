@@ -2,10 +2,10 @@ class CdsController < ApplicationController
   before_action :current_cart
   def new
     @cd = Cd.new
-    # respond_to do |format| 
-    #         format.html{ redirect_to admins_top_path, notice: 'Cd was successfully created.' }
-    #         format.js {} 
-    #     end
+    respond_to do |format|
+            format.js  #{}
+            # format.html{ redirect_to admin_root_path(current_admin.id), notice: 'Cd was successfully created.' }
+        end
     @cd.songs.build
   end
   def create
