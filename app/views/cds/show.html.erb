@@ -22,6 +22,11 @@
     <% end %>
     </ul>
 </div>
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 <% if user_signed_in? %>
     <%= form_for [@cd, @cart_item], url:carts_path do |f| %>
 	   <%= f.hidden_field :cd_id, :value => @cd.id %>
