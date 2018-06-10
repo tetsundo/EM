@@ -11,10 +11,11 @@ class SoldsController < ApplicationController
   		@sold_item.cd_id = cart_item.cd_id
   		@sold_item.quantity = cart_item.quantity
   		@sold_item.price = cart_item.price
-  		binding.pry
   		@sold_item.sold_id = current_sold.id
   		@sold_item.save
   	end
+  	@cart = current_cart
+  	@cart.destroy
   end
 
   def index
