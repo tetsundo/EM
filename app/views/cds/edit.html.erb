@@ -14,10 +14,8 @@
     <% end %>
 
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+      <h3 class="modal-title" id="exampleModalLabel">CDを編集</h3>
+      <%= link_to "編集を止める", admin_cd_path(current_admin.id, @cd.id), class: "btn-sm btn-default" %>
     </div>
     <div class="modal-body">
       <div class="form-group field">
@@ -76,8 +74,8 @@
       </div>
     </div>
     <div class="modal-footer actions">
-      <button type="button" class="btn btn-secondary">Close</button>
-      <%= f.submit "CDを登録", class: "btn btn-primary" %>
+      <%= link_to "編集を止める", admin_cd_path(current_admin.id, @cd.id), class: "btn-sm btn-default" %>
+      <%= f.submit "CDを更新", class: "btn btn-primary" %>
     </div>
     <% end %>
   </div>
