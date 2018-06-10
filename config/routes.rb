@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   resources :carts, only: [:show, :create, :update, :destroy] do
     get 'purchase' => 'carts#purchase', as: 'purchase'
   end
-  resources :solds, only: [:index, :show]
+  resources :solds, only: [:index, :show, :create]
   resources :genres, only: [:show]
   resources :songs, only: [:new, :create]
   resources :cds, only:[:show, :new, :create, :destroy, :edit, :update]
-  resources :admins do 
+  resources :admins do
     resources :cds, only: [:show, :new, :create, :destroy, :edit, :update]
     resources :users, only: [:show, :edit, :update, :destroy, :index]
   end

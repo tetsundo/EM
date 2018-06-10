@@ -41,6 +41,10 @@
 				</tbody>
 				</table>
 				<h3 class="sum">合計金額：6000円</h3>
+				<%= form_for [@sold], url:solds_path do |f| %>
+	   				<%= f.hidden_field :cart_id, :value => current_cart.id %>
+        			<%= f.submit "注文を確定する" %>
+    			<% end %>
 				<div class="btn-group">
 					<a href="#" class="square_btn">注文を確定する</a>
 				</div>

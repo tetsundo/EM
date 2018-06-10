@@ -2,6 +2,7 @@ class CartsController < ApplicationController
 
   def show
   	@cart_items = current_cart.cart_items
+  	@total_price = 0
   	@cart_items.each do |cart_item|
   	  @total_price += cart_item.price
     end
@@ -16,7 +17,7 @@ class CartsController < ApplicationController
    	 @cart_item.user_id = current_user.id
      @cart_item.cart_id = current_cart.id
      @cart_item.price = @cart_item.cd.price * @cart_item.quantity
-     if @cart_item.quantity < @cart_item.cd.remaining_quantity
+     if @cart_item.quantity <= @cart_item.cd.remaining_quantity
        @cart_item.save
        redirect_to cd_path(@cart_item.cd_id)
      else
@@ -33,10 +34,9 @@ class CartsController < ApplicationController
 
   def purchase
   	@cart_items = current_cart.cart_items
-  	# @cd = current_cart.cart_items.cd
-  	# binding.pry
   	@cart = current_cart
   	@user = current_user
+  	@sold = Sold.new
   end
 
   def destroy
