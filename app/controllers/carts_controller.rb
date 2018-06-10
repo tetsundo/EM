@@ -36,7 +36,11 @@ class CartsController < ApplicationController
   	@cart_items = current_cart.cart_items
   	@cart = current_cart
   	@user = current_user
-  	@sold = Sold.new
+  	@total_price = 0
+  	@cart_items.each do |cart_item|
+  	  @total_price += cart_item.price
+    end
+  	@sold_item = SoldItem.new
   end
 
   def destroy
