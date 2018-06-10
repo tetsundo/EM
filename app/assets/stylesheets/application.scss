@@ -15,10 +15,65 @@
  */
   @import "bootstrap-sprockets";
   @import "bootstrap";
+ @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+ .genre{
+  width:900px;
+  margin:0 auto;
+}
+.genre-box {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  perspective: 500px;
+  -webkit-perspective: 500px;
+  float: left;
+  margin: 0 10px;
+}
+
+.genre-item {
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: 0.25s;
+  -webkit-transition: 0.75s;
+}
+
+.genre-box:hover .genre-item {
+  transform: rotateX(-90deg);
+}
+
+span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid black;
+  font-family: 'Source Sans Pro',sans-serif;
+  line-height: 40px;
+  font-size: 17pt;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+span:nth-child(1) {
+  color: black;
+  transform: translate3d(0, 0, 30px);
+  -webkit-transform: translate3d(0, 0, 30px);
+}
+
+span:nth-child(2) {
+  color: black;
+  background: #fff;
+  transform: rotateX(90deg) translate3d(0, 0, 30px);
+-webkit-transform: rotateX(90deg) translate3d(0, 0, 25.5px);
+}
+
 
 .release-image {
 	width: 460px;
-	float: left;
+
+	/*float: left;*/
 }
 .index-image {
 	width: 200px;
@@ -225,7 +280,7 @@ footer {
 }
 .nav-text::after {
   position: absolute;
-  bottom: -4px;
+  bottom: -8px;
   left: 0;
   content: '';
   width: 100%;
@@ -238,14 +293,20 @@ footer {
 .nav-text:hover::after {
   transform: scale(1, 1);
 }
-
+a {
+  color: black;
+}
+a:hover, a:focus {
+    text-decoration: none;
+}
+/*
 .slide{
   list-style-type: none!important;
   overflow: hidden;
   /*background-color:black;*/
   /*box-shadow: 0 2px 5px #999;*/
   /*padding:10px 0!important;*/
-  width: 100%;
+  /*width: 100%;
   height:300px;
   margin-left:0!important;
   margin-top:2em!important;
@@ -257,19 +318,19 @@ footer {
 .slide li{
   float:left;
   margin-left:17px;
-}
+}*/
 
 
-.slide:before,
+/*.slide:before,
 .slide:after{
     content: " ";
     display: table;
-}
+}*/
 
 
-.slide:after{
+/*.slide:after{
     clear: both;
-}
+/*}*/
 .cds-index {
 	width: 100%;
 	float:left;
