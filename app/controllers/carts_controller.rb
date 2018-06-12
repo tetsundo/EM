@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-
+  before_action :current_cart
   def show
   	@cart_items = current_cart.cart_items
   	@total_price = 0
