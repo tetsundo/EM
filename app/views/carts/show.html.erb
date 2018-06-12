@@ -21,7 +21,7 @@
 							<td class="table-item"><%= cart_item.cd.artist_name %></td>
 							<td class="table-item"><%= cart_item.price %></td>
 							<td class="table-item"><%= cart_item.quantity %></td>
-							<td><%= link_to 'Destroy', cart_path(cart_item.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: 'btn-sm btn-danger'%></td>
+							<td><%= link_to 'カートを空にする', cart_path(cart_item.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: 'btn-sm btn-danger'%></td>
 						</tr>
 					<% end %>
 				</tbody>
