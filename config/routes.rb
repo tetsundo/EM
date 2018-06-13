@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- devise_for :admins
+  devise_for :admins
   devise_for :users
   resources :carts, only: [:show, :create, :update, :destroy] do
     get 'purchase' => 'carts#purchase', as: 'purchase'
