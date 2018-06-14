@@ -16,4 +16,9 @@ Rails.application.routes.draw do
   root 'cds#index'
   get 'admins/:admin_id/top' => 'admins#top', as: 'admin_root'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  devise_scope :user do
+   get '/logout', to: 'devise/sessions#destroy', as: :logout
+  end
+
 end
