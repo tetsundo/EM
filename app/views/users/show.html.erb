@@ -41,6 +41,13 @@
 				    <span>Logout</span>
 				 </button>
 			<% end %>
+
+			<%= link_to user_path(current_user), method: :delete do %>
+				<button type="button" class="btn btn-danger">退会する
+				</button>
+			<% end %>
+
+
 			<% else %>
 			<%= link_to "", edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 			<% end %>
