@@ -4,11 +4,13 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_cart
   # before_action :current_cart
-
   	def create_cart
-      if current_user.cart.nil?
-        @cart = Cart.create(user_id: current_user.id)
-      end
+  		# binding.pry
+  	 if current_user.present?
+	      if current_user.cart.nil?
+	        @cart = Cart.create(user_id: current_user.id)
+	      end
+	 end
     end
 
     def current_cart
@@ -18,20 +20,20 @@ class ApplicationController < ActionController::Base
 	def after_sign_in_path_for(resource)
       case resource
       when User
-        cds_path
+        root_path
       when Admin
         admin_root_path(current_admin.id)
   end
   end
 
-   def after_sign_out_path_for(resource)
-    case resource
-      when User
-        root_path
-      when Admin
-        new_admin_session_path
-      end
-   end
+   # def after_sign_out_path_for(resource)
+   #  case resource
+   #    when User
+   #      root_path
+   #    when Admin
+   #      new_admin_session_path
+   #    end
+   # end
 
 
   def configure_permitted_parameters
