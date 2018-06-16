@@ -39,6 +39,8 @@ class CartsController < ApplicationController
   	@cart_items.each do |cart_item|
   	  @total_price += cart_item.price
     end
+    @cart.subtotal = @total_price
+    @cart.save
   	@sold_item = SoldItem.new
   end
 
