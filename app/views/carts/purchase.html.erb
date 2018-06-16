@@ -1,53 +1,64 @@
 <body>
-	<section id="purchase">
-		<h1 class="topic">購入確認画面</h1>
-		<div class="left-content">
-			<div class="content-item">
-				<h2>お届け先</h2>
-				<br>
-				<p class="info-text"><b>名前:</b> <%= @user.last_name %><%= @user.first_name %></p>
-				<p><b>お届け先住所:</b></p>
-				<p>〒<%= @user.post_code %></p>
-				<p class="info-text"><%= @user.address %></p>
-				<p class="info-text"><b>電話番号:</b> <%= @user.tell_number %></p>
-				<p><b>メールアドレス:</b> <%= @user.email %></p>
-				<div class="btn-left">
-					<a href="#" class="square_btn">注文を確定する</a>
+	<h1 class="topic">購入確認画面</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-1"></div>
+			<section id="purchase">
+				<div class="col-lg-3">
+					<div class="left-content">
+						<div class="content-item">
+							<h2>お届け先</h2>
+							<br>
+							<p class="info-text"><b>名前:</b> <%= @user.last_name %><%= @user.first_name %></p>
+							<p><b>お届け先住所:</b></p>
+							<p>〒<%= @user.post_code %></p>
+							<p class="info-text"><%= @user.address %></p>
+							<p class="info-text"><b>電話番号:</b> <%= @user.tell_number %></p>
+							<p><b>メールアドレス:</b> <%= @user.email %></p>
+							<p><br></p>
+							<%= link_to "トップページに戻る", root_path %>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="right-content">
-			<div class="content-item">
-				<table class="cart">
-				<thead>
-					<tr>
-						<th class="table-item"></th>
-						<th class="table-item">商品名</th>
-						<th class="table-item">アーティスト名</th>
-						<th class="table-item">金額</th>
-						<th class="table-item">数量</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @cart_items.each do |cart_item| %>
-						<tr>
-							<td class="table-item"><%= attachment_image_tag(cart_item.cd, :image, :fill, 100, 100) %></td>
-							<td class="table-item"><%= cart_item.cd.jacket_name %></td>
-							<td class="table-item"><%= cart_item.cd.artist_name %></td>
-							<td class="table-item"><%= cart_item.price %></td>
-							<td class="table-item"><%= cart_item.quantity %></td>
-						</tr>
-					<% end %>
-				</tbody>
-				</table>
-				<h3 class="sum">合計金額：<%= @total_price %>円</h3>
-				<div class="btn-group">
-					<%= form_for @sold_item, url: solds_path do |f| %>
-	   					<%= f.hidden_field :cart_id, :value => current_cart.id %>
-        				<%= f.submit "注文を確定する" %>
-    				<% end %>
+				<div class="col-lg-7">
+					<div class="right-content">
+						<div class="content-item">
+							<table class="cart-contents">
+								<thead>
+									<tr>
+										<th class="table-item"></th>
+										<th class="table-item">商品名</th>
+										<th class="table-item">アーティスト名</th>
+										<th class="table-item">金額</th>
+										<th class="table-item">数量</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% @cart_items.each do |cart_item| %>
+										<tr>
+											<td class="table-item"><%= attachment_image_tag(cart_item.cd, :image, :fill, 100, 100) %></td>
+											<td class="table-item"><%= cart_item.cd.jacket_name %></td>
+											<td class="table-item"><%= cart_item.cd.artist_name %></td>
+											<td class="table-item"><%= cart_item.price %></td>
+											<td class="table-item"><%= cart_item.quantity %></td>
+										</tr>
+									<% end %>
+								</tbody>
+							</table>
+							<h3 class="sum">合計金額：<%= @total_price %>円</h3>
+							<% if @cart_item.present? %>
+								<div class="btn-group">
+									<%= form_for @sold_item, url: solds_path do |f| %>
+	   									<%= f.hidden_field :cart_id, :value => current_cart.id %>
+        								<%= f.submit "注文を確定する" %>
+    								<% end %>
+    							</div>
+    						<% end %>
+						</div>
+					</div>
 				</div>
-			</div>
+			</section>
+			<div class="col-lg-1"></div>
 		</div>
-	</section>
+	</div>
 </body>

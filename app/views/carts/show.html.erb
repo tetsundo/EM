@@ -6,30 +6,37 @@
 			<table class="cart-item">
 				<thead>
 					<tr>
-						<th class="table-item"></th>
-						<th class="table-item">商品名</th>
-						<th class="table-item">アーティスト名</th>
-						<th class="table-item">金額</th>
-						<th class="table-item">数量</th>
+						<th class="cd-info"></th>
+						<th class="cd-info">商品名</th>
+						<th class="cd-info">アーティスト名</th>
+						<th class="cd-info">金額</th>
+						<th class="cd-info">数量</th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @cart_items.each do |cart_item| %>
 						<tr>
-							<td class="table-item"><%= attachment_image_tag(cart_item.cd, :image, :fill, 100, 100) %></td>
-							<td class="table-item"><%= cart_item.cd.jacket_name %></td>
-							<td class="table-item"><%= cart_item.cd.artist_name %></td>
-							<td class="table-item"><%= cart_item.price %></td>
-							<td class="table-item"><%= cart_item.quantity %></td>
-							<td><%= link_to 'カートを空にする', cart_path(cart_item.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: 'btn-sm btn-danger'%></td>
+							<td class="cd-info"><%= attachment_image_tag(cart_item.cd, :image, :fill, 100, 100) %></td>
+							<td class="cd-info"><%= cart_item.cd.jacket_name %></td>
+							<td class="cd-info"><%= cart_item.cd.artist_name %></td>
+							<td class="cd-info"><%= cart_item.price %></td>
+							<td class="cd-info"><%= cart_item.quantity %></td>
+							<td class="cd-info"><%= link_to 'カートを空にする', cart_path(cart_item.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: 'btn-sm btn-danger'%></td>
 						</tr>
 					<% end %>
 				</tbody>
 			</table>
 			<h3 class="sum">合計金額：<%= @total_price %>円</h3>
-			<div class="btn-group">
-				<%= link_to "購入手続きへ", cart_purchase_path(current_cart.id) %>
+			<div class="btn-container">
+				<% if @cart_item.present? %>
+					<%= link_to(cart_purchase_path(current_cart.id)) do %>
+						<div class="btn btn-lg btn-default btn-color btn-block">
+							<p class="btn-font">購入手続きへ</p>
+						</div>
+					<% end %>
+				<% end %>
 			</div>
+			<p class="back"><%= link_to "トップページに戻る", root_path %></p>
 		</div>
 	</section>
 </body>
