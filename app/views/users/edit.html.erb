@@ -23,7 +23,11 @@
 		  </div>
 
 		<% end %>
+		<% if user_signed_in? %>
 		<%= link_to "前に戻る", user_path(current_user.id)%>
+		<% elsif admin_signed_in? %>
+		<%= link_to "前に戻る", admin_user_path(current_admin.id, @user.id)%>
+		<% end %>
 </div>
 
 
