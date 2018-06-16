@@ -30,7 +30,7 @@
 <% if user_signed_in? %>
     <%= form_for [@cd, @cart_item], url:carts_path do |f| %>
 	   <%= f.hidden_field :cd_id, :value => @cd.id %>
-        <%= f.number_field :quantity %>
+        <%= f.number_field :quantity, min: 1 %>
         <%= f.submit "カートに入れる" %>
     <% end %>
     <%=link_to 'Topに戻る', root_path %>
