@@ -28,9 +28,13 @@
 			</table>
 			<h3 class="sum">合計金額：<%= @total_price %>円</h3>
 			<div class="btn-container">
-				<div class="btn btn-lg btn-default btn-color btn-block">
-					<%= link_to "購入手続きへ", cart_purchase_path(current_cart.id) %>
-				</div>
+				<% if @cart_item.present? %>
+					<%= link_to(cart_purchase_path(current_cart.id)) do %>
+						<div class="btn btn-lg btn-default btn-color btn-block">
+							<p class="btn-font">購入手続きへ</p>
+						</div>
+					<% end %>
+				<% end %>
 			</div>
 			<p class="back"><%= link_to "トップページに戻る", root_path %></p>
 		</div>

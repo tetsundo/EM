@@ -46,10 +46,13 @@
 								</tbody>
 							</table>
 							<h3 class="sum">合計金額：<%= @total_price %>円</h3>
-							<div class="btn-group">
-								<%= form_for @sold_item, url: solds_path do |f| %>
-	   							<%= f.hidden_field :cart_id, :value => current_cart.id %>
-        						<%= f.submit "注文を確定する" %>
+							<% if @cart_item.present? %>
+								<div class="btn-group">
+									<%= form_for @sold_item, url: solds_path do |f| %>
+	   									<%= f.hidden_field :cart_id, :value => current_cart.id %>
+        								<%= f.submit "注文を確定する" %>
+    								<% end %>
+    							</div>
     						<% end %>
 						</div>
 					</div>
