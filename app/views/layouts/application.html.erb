@@ -46,7 +46,7 @@
     <div class="genre-box">
       <div class="genre-item">
         <span><%= link_to "Jpop", genre_path(1)%></span>
-        <span><%= link_to "邦楽", genre_path(1)%></span>
+        <span><%= link_to "J-ポップ", genre_path(1)%></span>
       </div>
     </div>
     <div class="genre-box">
@@ -63,19 +63,26 @@
     </div>
     <div class="genre-box">
       <div class="genre-item">
-        <span><%= link_to "Pop", genre_path(5)%></span>
-        <span><%= link_to "洋楽", genre_path(5)%></span>
+        <span><%= link_to "Pop", genre_path(4)%></span>
+        <span><%= link_to "ポップ", genre_path(4)%></span>
       </div>
     </div>
     <div class="genre-box">
       <div class="genre-item">
-        <span><%= link_to "Enka", genre_path(4)%></span>
-        <span><%= link_to "演歌", genre_path(4)%></span>
+        <span><%= link_to "Enka", genre_path(5)%></span>
+        <span><%= link_to "演歌", genre_path(5)%></span>
       </div>
     </div>
     </div>
 
   </nav>
+   <!-- `form_for`のRansack版 -->
+<%= search_form_for @search, url: admin_root_path(current_admin.id) do |f| %>
+  <!-- # nameカラムに対して部分一致検索ができる -->
+  <%= f.search_field :jacket_name_or_artist_name_cont, class: "form-control ransack-form", placeholder: "例..アーティスト名、ジャケット名" %>
+  <%= f.submit "検索" , class: "ransack"%>
+
+<% end %>
   <%= yield %>
   <footer>
     <p class="footer-text"> ©︎ All rights recerved by Omomuki.Inc.</p>
