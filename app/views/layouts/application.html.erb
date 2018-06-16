@@ -46,32 +46,42 @@
     <div class="genre">
     <div class="genre-box">
       <div class="genre-item">
-        <span>Jpop</span>
-        <span>邦楽</span>
+        <%= link_to(genre_path(1)) do %>
+          <span>Jpop</span>
+          <span>邦楽</span>
+        <% end %>
       </div>
     </div>
     <div class="genre-box">
       <div class="genre-item">
-        <span>Rock</span>
-        <span>ロック</span>
+        <%= link_to(genre_path(2)) do %>
+          <span>Rock</span>
+          <span>ロック</span>
+        <% end %>
       </div>
     </div>
     <div class="genre-box">
       <div class="genre-item">
-        <span>Jazz</span>
-        <span>ジャズ</span>
+        <%= link_to(genre_path(3)) do %>
+          <span>Jazz</span>
+          <span>ジャズ</span>
+        <% end %>
       </div>
     </div>
     <div class="genre-box">
       <div class="genre-item">
-        <span>Pop</span>
-        <span>洋楽</span>
+        <%= link_to(genre_path(4)) do %>
+          <span>Pop</span>
+          <span>洋楽</span>
+        <% end %>
       </div>
     </div>
     <div class="genre-box">
       <div class="genre-item">
-        <span>Enka</span>
-        <span>演歌</span>
+        <%= link_to(genre_path(5)) do %>
+          <span>Enka</span>
+          <span>演歌</span>
+        <% end %>
       </div>
     </div>
     </div>
