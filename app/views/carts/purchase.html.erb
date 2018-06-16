@@ -46,7 +46,7 @@
 								</tbody>
 							</table>
 							<h3 class="sum">合計金額：<%= @total_price %>円</h3>
-							<% if @cart_item.present? %>
+							<% unless @cart_items.empty? %>
 								<div class="btn-group">
 									<%= form_for @sold_item, url: solds_path do |f| %>
 	   									<%= f.hidden_field :cart_id, :value => current_cart.id %>

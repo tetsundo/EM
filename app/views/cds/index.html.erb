@@ -1,6 +1,11 @@
 <body>
 	<section id="portfolio">
 		<div class="container">
+			<% if flash[:notice] %>
+  				<div class="alert alert-success">
+    				<%= flash[:notice] %>
+  				</div>
+			<% end %>
 			<h2 class="heading">ALL</h2>
 			<div class="production-group clearfix">
 				<% @cds.each do |cd| %>

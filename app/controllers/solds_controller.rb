@@ -18,7 +18,7 @@ class SoldsController < ApplicationController
       cart_item.cd.save
   		cart_item.destroy
   	end
-    redirect_to root_path
+    redirect_to root_path, notice: '注文が完了しました。ご購入ありがとうございます！'
   end
 
   def index
