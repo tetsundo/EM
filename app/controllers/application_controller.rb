@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
-
+  before_action :ransack
   helper_method :current_cart
   # before_action :current_cart
   	def create_cart
@@ -25,7 +25,10 @@ class ApplicationController < ActionController::Base
         admin_root_path(current_admin.id)
   end
   end
-
+  def ransack
+    @search = Cd.ransack(params[:q])
+    @results = @search.result
+  end
    # def after_sign_out_path_for(resource)
    #  case resource
    #    when User

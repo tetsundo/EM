@@ -4,9 +4,8 @@ class GenresController < ApplicationController
   end
 
   def show
-    genre = Genre.find(params[:id])
-    @cds = genre.cds.all.order(created_at: 'desc')
-    render "admins/top"
+    @genre = Genre.find(params[:id])
+    @cds = @genre.cds.all.order(created_at: 'desc')
   end
 
   def edit
