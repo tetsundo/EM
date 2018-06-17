@@ -6,43 +6,14 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   </head>
   <body>
   <header class="clearfix">
     <!-- <i class="fa fa-facebook-square icon"></i> -->
     <!-- <div class="kensaku">。。このWebsiteを検索</div> -->
-    <% if user_signed_in? %>
-      <div class="box">
-        <a href="/carts/:id"><i class="fa fa-shopping-cart cart"></i></a>
-        <div class="kon">
-          <i class="fa fa-user-circle usericon"></i>
-          <p class="name"><%= link_to current_user.last_name, user_path(current_user) %></p>
-        </div>
-      </div>
-      <% elsif admin_signed_in? %>
-    <h1 class="headline">
-      <%= link_to "管理者画面", admin_root_path(current_admin.id) %>
-    </h1>
-    <nav>
-      <ul class="nav-list">
-        <li class="nav-list-item">
-          <a href="sold_index.html" class="nav-text">購入履歴</a>
-        </li>
-        <li class="nav-list-item">
-          <%= link_to 'User一覧', admin_users_path(current_admin.id), class: "nav-text" %>
-        </li>
-        <li class="nav-list-item"><%= link_to 'logout', destroy_admin_session_path(current_admin.id), class: "glyphicon glyphicon-log-out nav-text",method: :delete %></li>
-      </ul>
-      </nav>
-    <% else %>
-      <div class="login-signup">
-        <p class="lo-si"><a href="/users/sign_in">Login</a></p>
-        <p class="lo-si"><a href="/users/sign_up">Sign up</a></p>
-      </div>
-    <% end %>
-  </header>
-    <div class="genre">
+    
+  <div class="genre">
     <div class="genre-box">
       <div class="genre-item">
         <%= link_to(genre_path(1)) do %>
@@ -83,26 +54,59 @@
         <% end %>
       </div>
     </div>
-    </div>
-
-  </nav>
-
-  <% if admin_signed_in? %>
-   <!-- `form_for`のRansack版 -->
-<%= search_form_for @search, url: admin_root_path(current_admin.id) do |f| %>
+  </div>
+<% if admin_signed_in? %>
+  <div class = "cd_search">   <!-- `form_for`のRansack版 -->
+  <%= search_form_for @search, url: admin_root_path(current_admin.id) do |f| %>
   <!-- # nameカラムに対して部分一致検索ができる -->
-  <%= f.search_field :jacket_name_or_artist_name_cont, class: "form-control ransack-form", placeholder: "例..アーティスト名、ジャケット名" %>
+  <%= f.search_field :jacket_name_or_artist_name_cont, class: "ransack-form", placeholder: "例..アーティスト名、ジャケット名" %>
   <%= f.submit "検索" , class: "ransack"%>
 
   <% end %>
   <% else %>
   <%= search_form_for @search, url: root_path do |f| %>
   <!-- # nameカラムに対して部分一致検索ができる -->
-  <%= f.search_field :jacket_name_or_artist_name_cont, class: "form-control ransack-form", placeholder: "例..アーティスト名、ジャケット名" %>
-  <%= f.submit "検索" , class: "ransack"%>
+  <%= f.search_field :jacket_name_or_artist_name_cont, class: "ransack-form", placeholder: "例..アーティスト名、ジャケット名" %>
+  <!-- <i class="fas fa-search"></i> -->
+  <%= button_tag :type => "submit", :class =>"ransack" do %>
+  <i class="fas fa-search"></i>
   <% end %>
   <% end %>
-
+  </div>
+<% end %>
+    <% if user_signed_in? %>
+      <div class="user-box">
+        <a href="/carts/:id">
+          <i class="fa fa-shopping-cart cart"></i></a>
+        <div class="name">
+          <%= link_to(user_path(current_user)) do  %>
+            <i class="fa fa-user-circle usericon"></i>
+            <%= current_user.last_name %>
+          <% end %>
+        </div>
+      </div>
+      <% elsif admin_signed_in? %>
+    <h1 class="headline">
+      <%= link_to "管理者画面", admin_root_path(current_admin.id) %>
+    </h1>
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-list-item">
+          <a href="sold_index.html" class="nav-text">購入履歴</a>
+        </li>
+        <li class="nav-list-item">
+          <%= link_to 'User一覧', admin_users_path(current_admin.id), class: "nav-text" %>
+        </li>
+        <li class="nav-list-item"><%= link_to 'logout', destroy_admin_session_path(current_admin.id), class: "glyphicon glyphicon-log-out nav-text",method: :delete %></li>
+      </ul>
+      </nav>
+    <% else %>
+      <div class="login-signup">
+        <p class="lo-si"><a href="/users/sign_in">Login</a></p>
+        <p class="lo-si"><a href="/users/sign_up">Sign up</a></p>
+      </div>
+    <% end %>
+</header>
   <%= yield %>
   <footer>
     <p class="footer-text"> ©︎ All rights recerved by Omomuki.Inc.</p>
