@@ -56,6 +56,20 @@
 
 		<div class="col-lg-8">
 			<h2>購入履歴</h2>
+			<table class="table table-hover">
+				<tr>
+					<th>Image</th>
+					<th>name</th>
+					<th>price</th>
+				</tr>
+				<% @sold_items.each do |sold_items| %>
+					<tr>
+						
+						<td><%= sold_items.price %></td>
+						
+					</tr>
+				<% end %>
+			</table>
 		</div>
 	</div>
 </div>
