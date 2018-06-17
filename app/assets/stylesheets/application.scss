@@ -18,8 +18,8 @@
  @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 
  .genre{
-  width:900px;
-  margin:0 auto;
+  width: 1000px;
+  margin: 20px auto;
   height: 55px;
 }
 .genre-box {
@@ -151,22 +151,7 @@ main {
   font-size: 13px;
   float: left;
 }
-input[type=submit] {
-  border: none;
-  outline: none;
-  display: block;
-  line-height: 30px;
-  width: 160px;
-  text-align: center;
-  font-size: 13px;
-  color: #fff;
-  background-color: black;
-  border-bottom: 4px solid gray;
-  cursor:pointer;
-  box-sizing: content-box;
-  transition:0.1s ease all;
-  margin: 20px auto;
-}
+
 input[type=submit]:hover{
   opacity:0.6;
 }
@@ -351,9 +336,69 @@ a:hover, a:focus {
     margin: auto;
 }
 
+.cd_search {
+  position: relative;
+    margin: 0 0 0 200px;
+    height: 50px;
+    width: 800px;
+    float: left;
+}
 .ransack-form {
-  width: 500px;
-  margin: 50px auto;
+  height: 50px;
+ padding: 0 10px;
+ position: absolute;
+ left: 0;
+ top: 0;
+ width:800px!important;
+ border-radius:2px;
+ border:solid 3px #eaeaea;
+ outline: 0;
+}
+
+.ransack {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 750px;
+  top: 0;
+  background: none;
+  color: #666;
+  border: none;
+  font-size: 20px;
+  outline: 0;
 }
 
 
+.user-box {
+  float: left;
+    height: 50px;
+    width: 350px;
+}
+
+.cart {
+  font-size: 40px;
+    width: 50px;
+    float: left;
+    margin: 5px 20px;
+
+}
+.kon {
+      width: 250px;
+    float: left;
+}
+
+
+.fa-user-circle {
+  font-size: 40px;
+    width: 50px;
+    float: left;
+    margin: 5px;
+}
+.name {
+     width: 150px;
+    height: 50px;
+    font-size: 26px;
+    display: inline-block;
+    float: left;
+    line-height: 50px;
+}
