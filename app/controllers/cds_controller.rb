@@ -29,7 +29,11 @@ class CdsController < ApplicationController
   end
 
   def index
+    if @results
+   @cds = @results
+   else
     @cds = Cd.all
+   end
   end
 
   def edit
