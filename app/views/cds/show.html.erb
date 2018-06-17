@@ -1,39 +1,65 @@
+<div class="container show">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-3">
+            <%= attachment_image_tag(@cd, :image, class: "cd-image" ) %>
+            <h5>発売日：<%=  @cd.release_date %></h5>
+            <h5><%= @cd.genre.genre_name %></h5>
+            <h5><%= @cd.rabel_name %></h5>
+            <% if admin_signed_in? %>
+                <p class="return"><%=link_to 'Topに戻る', admin_root_path %></p>
+                <% else %>
+                <p class="return"><%=link_to 'Topに戻る', root_path %></p>
+            <% end %>
+            <% if admin_signed_in? %>
+                <dd><%=link_to 'Edit', edit_admin_cd_path(@cd.id), class: "btn-sm btn-success"%>    <%=link_to 'Destroy',admin_cd_path(current_admin.id), method: :delete, class: "btn-sm btn-danger"%></dd>
+            <% end %>
+        </div>
+        <div class="col-lg-7">
+            <div class="cd-group">
+                <div class="show-header clearfix">
+                    <div class="left-item">
+                        <h2><%= @cd.jacket_name %></h2>
+                        <h4><%=  @cd.artist_name %></h4>
+                    </div>
+                    <div class="right-item">
+                        <h5>価格：<%=  @cd.price %>円</h5>
+                        <h5>在庫<%= @cd.remaining_quantity%></h5>
+                    </div>
+                </div>
+                <p><br></p>
+                <table class="cart-contents">
+                    <thead>
+                        <tr>
+                            <th><p>曲名</p></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @songs.each do |song| %>
+                            <tr>
+                                <td><p><%= song.order %>.  <%= song.song_name %></p></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+                <p><br></p>
 
-<div class = "cd-show clearfix">
-	<div class = "cd-show-header"><h2><%=  @cd.artist_name %></h2></div>
-	<div class="main-contents clearfix">
-  <dl>
-    <dd><%= attachment_image_tag @cd, :image, :fill, 60, 60, format: 'jpg',fallback: "no_image.jpg", class: "index-image" %></dd>
+            <% if flash[:alert] %>
+                <div class="alert alert-danger">
+                    <%= flash[:alert] %>
+                </div>
+            <% end %>
+            <% if user_signed_in? %>
+                <%= form_for [@cd, @cart_item], url:carts_path do |f| %>
+                    <%= f.hidden_field :cd_id, :value => @cd.id %>
+                    <%= f.label :購入枚数 %>
+                    <%= f.number_field :quantity, min: 1 %>
+                    <%= f.submit "カートに入れる" %>
+                <% end %>
+            <% end %>
 
-    <dt><%= @cd.jacket_name %></dt>
-    <dd>発売日：<%=  @cd.release_date %></dd>
-    <dd>価格：<%=  @cd.price %>円</dd>
-    <% if admin_signed_in? %>
-    <dd><%=link_to 'Edit', edit_admin_cd_path(@cd.id), class: "btn-sm btn-success"%>    <%=link_to 'Destroy',admin_cd_path(current_admin.id), method: :delete, class: "btn-sm btn-danger"%></dd>
-    <% end %>
-    <dd>在庫<%= @cd.remaining_quantity%></dd>
-    
-    </dl>
+        </div>
+        </div>
+        <div class="col-lg-1"></div>
     </div>
-    <h3>Disk<%= @cd.disk %></h3>
-    <ul>
-    <% @songs.each do |song| %>
-		<li class="song-list"><%= song.order %>.  <%= song.song_name %></li>
-    <% end %>
-    </ul>
 </div>
-<% if flash[:alert] %>
-  <div class="alert alert-danger">
-    <%= flash[:alert] %>
-  </div>
-<% end %>
-<% if user_signed_in? %>
-    <%= form_for [@cd, @cart_item], url:carts_path do |f| %>
-	   <%= f.hidden_field :cd_id, :value => @cd.id %>
-        <%= f.number_field :quantity, min: 1 %>
-        <%= f.submit "カートに入れる" %>
-    <% end %>
-    <%=link_to 'Topに戻る', root_path %>
-    <% elsif admin_signed_in? %>
-    <%=link_to 'Topに戻る', admin_root_path %>
-<% end %>

@@ -138,6 +138,7 @@ color:white;
 }
 .right-item{
 	float: right;
+	margin-top: 20px;
 }
 dd {
 	margin-top: 15px;
@@ -193,4 +194,29 @@ dd {
 .back{
 	text-align: center;
 	padding-top: 10px;
+}
+.cd-image{
+	width: 250px;
+	height: 250px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+.show{
+	padding-top: 50px;
+}
+.cd-group{
+	width: 90%;
+	margin: 0 auto;
+}
+.return{
+	text-decoration: underline;
+}
+.cd-table{
+	margin-top: 10px;
+}
+.submit-btn{
+	width: 100%;
+}
+td{
+	padding-bottom: 10px;
 }
