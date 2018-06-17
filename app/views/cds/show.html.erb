@@ -3,7 +3,7 @@
         <div class="col-lg-1"></div>
         <div class="col-lg-3">
             <%= attachment_image_tag(@cd, :image, class: "cd-image" ) %>
-            <h5>発売日：<%=  @cd.release_date %></h5>
+            <h5>発売日：<%=  @cd.release_date.to_date %></h5>
             <h5><%= @cd.genre.genre_name %></h5>
             <h5><%= @cd.rabel_name %></h5>
             <% if admin_signed_in? %>
