@@ -24,6 +24,7 @@ class SoldsController < ApplicationController
   end
 
   def index
+    @sold_items = SoldItem.all
   end
 
   def show

@@ -38,6 +38,7 @@
 			<% end %>
 			
 			<br>
+			<% if user_signed_in? %>
 			<%= link_to destroy_user_session_path, method: :delete do %>
 				 <button type="button" class="btn btn-default btn-block">
 				    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
@@ -48,6 +49,7 @@
 			<%= link_to user_path(current_user), method: :delete do %>
 				<button type="button" class="btn btn-danger">退会する
 				</button>
+			<% end %>
 			<% end %>
 			<br>
 			<br>

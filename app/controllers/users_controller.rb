@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
-    @sold_items = current_user.sold_items
+    @sold_items = @user.sold_items
   end
 
   def edit
