@@ -61,10 +61,11 @@
 					<th>name</th>
 					<th>price</th>
 				</tr>
-				<% @sold_items.each do |sold_items| %>
+				<% @sold_items.each do |sold_item| %>
 					<tr>
-						
-						<td><%= sold_items.price %></td>
+						<td><%= attachment_image_tag sold_item.cd, :image, :fill, 50, 50, format: 'jpeg' %></td>
+						<td><%= sold_item.cd.jacket_name %></td>
+						<td><%= sold_item.price %></td>
 					</tr>
 				<% end %>
 			</table>
