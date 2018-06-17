@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       if admin_signed_in?
         redirect_to admin_user_path(current_admin.id, @user.id)
       elsif user_signed_in?
-        render "show"
+        redirect_to user_path(current_user)
       end
     elsif admin_signed_in?
         redirect_to edit_admin_user_path(current_admin.id, @user.id)
