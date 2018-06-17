@@ -79,6 +79,22 @@
 
   </nav>
 
+  <% if admin_signed_in? %>
+   <!-- `form_for`のRansack版 -->
+<%= search_form_for @search, url: admin_root_path(current_admin.id) do |f| %>
+  <!-- # nameカラムに対して部分一致検索ができる -->
+  <%= f.search_field :jacket_name_or_artist_name_cont, class: "form-control ransack-form", placeholder: "例..アーティスト名、ジャケット名" %>
+  <%= f.submit "検索" , class: "ransack"%>
+
+  <% end %>
+  <% else %>
+  <%= search_form_for @search, url: root_path do |f| %>
+  <!-- # nameカラムに対して部分一致検索ができる -->
+  <%= f.search_field :jacket_name_or_artist_name_cont, class: "form-control ransack-form", placeholder: "例..アーティスト名、ジャケット名" %>
+  <%= f.submit "検索" , class: "ransack"%>
+  <% end %>
+  <% end %>
+
   <%= yield %>
   <footer>
     <p class="footer-text"> ©︎ All rights recerved by Omomuki.Inc.</p>
