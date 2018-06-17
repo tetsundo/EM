@@ -1,4 +1,4 @@
 class SoldItem < ApplicationRecord
 	belongs_to :sold
-	has_many :cds
+	belongs_to :cd
 end
