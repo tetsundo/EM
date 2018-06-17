@@ -3,7 +3,7 @@ class SoldsController < ApplicationController
   # helper_method :current_sold
 
   def create
-  	@sold = Sold.create(user_id: current_user.id, cart_id: current_cart.id)
+  	@sold = Sold.create(user_id: current_user.id, cart_id: current_cart.id, subtotal: current_cart.subtotal)
   	@cart_items = current_cart.cart_items
   	# @sold_item = SoldItem.new(params[:id])
   	@cart_items.each do |cart_item|
@@ -12,12 +12,14 @@ class SoldsController < ApplicationController
   		@sold_item.cd_id = cart_item.cd_id
   		@sold_item.quantity = cart_item.quantity
   		@sold_item.price = cart_item.price
-  		@sold_item.sold_id = @sold.id
-  		@sold_item.save
+  		@sold_item.user_id = cart_item.user_id
+      @sold_item.sold_id = @sold.id
+      @sold_item.save
       cart_item.cd.remaining_quantity -= cart_item.quantity
       cart_item.cd.save
   		cart_item.destroy
   	end
+    current_cart.destroy
     redirect_to root_path, notice: '注文が完了しました。ご購入ありがとうございます！'
   end
 
