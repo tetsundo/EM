@@ -56,7 +56,7 @@
     </div>
   </div>
 <% if admin_signed_in? %>
-  <div class = "cd_search">   <!-- `form_for`のRansack版 -->
+  <div class = "cd_search_area">   <!-- `form_for`のRansack版 -->
   <%= search_form_for @search, url: admin_root_path(current_admin.id) do |f| %>
   <!-- # nameカラムに対して部分一致検索ができる -->
   <%= f.search_field :jacket_name_or_artist_name_cont, class: "ransack-form", placeholder: "例..アーティスト名、ジャケット名" %>
@@ -64,6 +64,7 @@
 
   <% end %>
   <% else %>
+  <div class = "cd_search_area"> 
   <%= search_form_for @search, url: root_path do |f| %>
   <!-- # nameカラムに対して部分一致検索ができる -->
   <%= f.search_field :jacket_name_or_artist_name_cont, class: "ransack-form", placeholder: "例..アーティスト名、ジャケット名" %>
@@ -71,6 +72,7 @@
   <%= button_tag :type => "submit", :class =>"ransack" do %>
   <i class="fas fa-search"></i>
   <% end %>
+  </div>
   <% end %>
   </div>
 <% end %>
@@ -86,13 +88,13 @@
         </div>
       </div>
       <% elsif admin_signed_in? %>
-    <h1 class="headline">
+    <!-- <h1 class="headline">
       <%= link_to "管理者画面", admin_root_path(current_admin.id) %>
-    </h1>
-    <nav>
+    </h1> -->
+    <div class="admin-nav">
       <ul class="nav-list">
         <li class="nav-list-item">
-          <a href="sold_index.html" class="nav-text">購入履歴</a>
+          <%= link_to "購入履歴", admin_solds_path(current_admin.id), class: "nav-text" %>
         </li>
         <li class="nav-list-item">
           <%= link_to 'User一覧', admin_users_path(current_admin.id), class: "nav-text" %>
@@ -105,6 +107,7 @@
         <p class="lo-si"><a href="/users/sign_in">Login</a></p>
         <p class="lo-si"><a href="/users/sign_up">Sign up</a></p>
       </div>
+    </div>
     <% end %>
 </header>
   <%= yield %>
