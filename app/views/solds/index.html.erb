@@ -10,7 +10,7 @@
 		<% @sold_items.each do |sold_item| %>
 			<tr>
 			<td><%= attachment_image_tag sold_item.cd, :image, :fill, 50, 50, format: 'jpeg' %></td>
-			<td><%= sold_item.cd.jacket_name %></td>
+			<td><%=link_to sold_item.cd.jacket_name, admin_cd_path(sold_item.cd.id, current_admin.id)%></td>
 			<td><%= sold_item.price %></td>
 			</tr>
 		<% end %>
