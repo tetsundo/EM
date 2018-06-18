@@ -55,8 +55,14 @@
       </div>
     </div>
   </div>
+   <% if admin_signed_in? %>
+    <h1 class="headline">
+      <%= link_to "管理者画面", admin_root_path(current_admin.id) %>
+    </h1>
+    <% end %>
+<div class = "cd_search_area"> 
 <% if admin_signed_in? %>
-  <div class = "cd_search_area">   <!-- `form_for`のRansack版 -->
+    <!-- `form_for`のRansack版 -->
   <%= search_form_for @search, url: admin_root_path(current_admin.id) do |f| %>
   <!-- # nameカラムに対して部分一致検索ができる -->
   <%= f.search_field :jacket_name_or_artist_name_cont, class: "ransack-form", placeholder: "例..アーティスト名、ジャケット名" %>
@@ -64,7 +70,6 @@
 
   <% end %>
   <% else %>
-  <div class = "cd_search_area"> 
   <%= search_form_for @search, url: root_path do |f| %>
   <!-- # nameカラムに対して部分一致検索ができる -->
   <%= f.search_field :jacket_name_or_artist_name_cont, class: "ransack-form", placeholder: "例..アーティスト名、ジャケット名" %>
@@ -72,10 +77,11 @@
   <%= button_tag :type => "submit", :class =>"ransack" do %>
   <i class="fas fa-search"></i>
   <% end %>
-  </div>
+  
   <% end %>
-  </div>
+
 <% end %>
+</div>
     <% if user_signed_in? %>
       <div class="user-box">
         <a href="/carts/:id">
@@ -88,10 +94,16 @@
         </div>
       </div>
       <% elsif admin_signed_in? %>
-    <!-- <h1 class="headline">
-      <%= link_to "管理者画面", admin_root_path(current_admin.id) %>
-    </h1> -->
-    <div class="admin-nav">
+      
+    <% else %>
+      <div class="login-signup">
+        <p class="lo-si"><a href="/users/sign_in">Login</a></p>
+        <p class="lo-si"><a href="/users/sign_up">Sign up</a></p>
+      </div>
+    </div>
+    <% end %>
+    <% if admin_signed_in? %>
+    <nav class="admin-nav">
       <ul class="nav-list">
         <li class="nav-list-item">
           <%= link_to "購入履歴", admin_solds_path(current_admin.id), class: "nav-text" %>
@@ -102,13 +114,7 @@
         <li class="nav-list-item"><%= link_to 'logout', destroy_admin_session_path(current_admin.id), class: "glyphicon glyphicon-log-out nav-text",method: :delete %></li>
       </ul>
       </nav>
-    <% else %>
-      <div class="login-signup">
-        <p class="lo-si"><a href="/users/sign_in">Login</a></p>
-        <p class="lo-si"><a href="/users/sign_up">Sign up</a></p>
-      </div>
-    </div>
-    <% end %>
+      <% end %>
 </header>
   <%= yield %>
   <footer>
