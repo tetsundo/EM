@@ -50,6 +50,11 @@
 				<button type="button" class="btn btn-danger">退会する
 				</button>
 			<% end %>
+			<% elsif admin_signed_in? %>
+			<%= link_to user_path(@user.id), method: :delete do %>
+				<button type="button" class="btn btn-danger">退会させる
+				</button>
+			<% end %>
 			<% end %>
 			<br>
 			<br>
