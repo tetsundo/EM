@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :songs, only: [:new, :create]
   resources :cds, only:[:show, :new, :create, :destroy, :edit, :update]
   resources :admins do
-    resources :cds, only: [:show, :new, :create, :destroy, :edit, :update]
+    resources :cds, only: [:new, :create, :destroy, :edit, :update]
     resources :users, only: [:show, :edit, :update, :destroy, :index]
     resources :solds, only: [:index]
   end

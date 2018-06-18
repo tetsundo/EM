@@ -46,7 +46,7 @@
 					<%= link_to(cd) do %>
           				<%= attachment_image_tag(cd, :image, class:'production' ) %>
         			<% end %>
-					<p><%= link_to cd.jacket_name, admin_cd_path(current_admin.id,cd.id) %></p>
+					<p><%= link_to cd.jacket_name, cd_path(cd.id) %></p>
 					<p><%= cd.artist_name %></p>
 				</div>
 				<% end %>
