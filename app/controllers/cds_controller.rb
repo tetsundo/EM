@@ -43,7 +43,7 @@ class CdsController < ApplicationController
   def update
     cd = Cd.find(params[:id])
     cd.update(cd_params)
-    redirect_to admin_cd_path
+    redirect_to cd_path
 
   end
 
