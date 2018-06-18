@@ -7,7 +7,7 @@
             <h5><%= @cd.genre.genre_name %></h5>
             <h5><%= @cd.rabel_name %></h5>
             <% if admin_signed_in? %>
-                <p class="return"><%=link_to 'Topに戻る', admin_root_path %></p>
+                <p class="return"><%=link_to 'Topに戻る', admin_root_path(current_admin.id) %></p>
                 <% else %>
                 <p class="return"><%=link_to 'Topに戻る', root_path %></p>
             <% end %>
