@@ -104,8 +104,9 @@
 								<div class="sold-content-row">
 									<%if admin_signed_in? %>
 									<%=link_to sold_item.cd.jacket_name, admin_cd_path(current_admin.id,sold_item.cd.id), class: "sold-cd-jacketname" %>
-									<% end %>
+									<% else %>
 									<%=link_to sold_item.cd.jacket_name, cd_path(sold_item.cd.id), class: "sold-cd-jacketname" %>
+									<% end %>
 								</div>
 								<div class="sold-content-row">
 									<%= sold_item.cd.artist_name %>

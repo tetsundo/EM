@@ -26,7 +26,7 @@
 								<a class="sold-row-label">注文者</a>
 							</div>
 							<div class="sold-row-secondary">
-								<%= sold.user.last_name %> 様
+								<%=link_to sold.user.last_name, admin_user_path(current_admin.id, sold.user.id), class: "sold-user-name" %> 様
 							</div>
 						</div>
 						<div class="sold-box-header-right-secondary">

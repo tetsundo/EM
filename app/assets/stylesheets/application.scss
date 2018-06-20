@@ -410,6 +410,9 @@ a:hover, a:focus {
 }
 
 
+.sold-box {
+  margin-top: 25px;
+}
 
 .sold-box-header {
   background-color: #f6f6f6!important;
@@ -449,6 +452,6 @@ a:hover, a:focus {
   padding-left: 1.5%;
 }
 
-.sold-cd-jacketname {
+.sold-cd-jacketname, .sold-user-name {
   color: #337ab7 !important;
 }

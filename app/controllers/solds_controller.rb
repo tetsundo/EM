@@ -38,9 +38,7 @@ class SoldsController < ApplicationController
     elsif sold.state = '準備中' 
       sold.ship!
     end
-    @user = sold.user
-    @sold_items = sold.sold_items
-    redirect_to admin_user_path(current_admin.id, @user.id)
+    redirect_to admin_solds_path(current_admin.id)
   end
 
   private
