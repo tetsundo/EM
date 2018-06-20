@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :admins do
     resources :cds, only: [:new, :create, :destroy, :edit, :update]
     resources :users, only: [:show, :edit, :update, :destroy, :index]
-    resources :solds, only: [:index]
+    resources :solds, only: [:index, :update]
   end
   resources :users, only: [:show, :edit, :update, :destroy]
   root 'cds#index'

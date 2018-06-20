@@ -1,9 +1,7 @@
 
 <div class="container">
-	<h1>My page</h1>
-	<div class="row">
 		<div class="col-lg-4">
-
+			<h1>My page</h1>
 			<table class="table">
 				<tr>
 					<td>Name</td>
@@ -61,22 +59,69 @@
 		</div>
 	<div class="col-lg-8">
 			<h2>購入履歴</h2>
-			<table class="table table-hover">
-				<tr>
-					<th>Image</th>
-					<th>name</th>
-					<th>price</th>
-				</tr>
-				<% @sold_items.each do |sold_item| %>
-					<tr>
-						<td><%= attachment_image_tag sold_item.cd, :image, :fill, 50, 50, format: 'jpeg' %></td>
-						<td><%=link_to sold_item.cd.jacket_name, cd_path(sold_item.cd.id) %></td>
-						<td><%= sold_item.price %></td>
-					</tr>
+			<% @solds.each do |sold| %>
+			<div class="sold-box">
+				<div class="sold-box-header">
+					<div class="sold-box-header-inner">
+						<div class="sold-box-header-left">
+							<div class="sold-row">
+								<a class="sold-row-label">注文日</a>
+							</div>
+							<div class="sold-row-secondary">
+								<%= sold.created_at.strftime('%Y/%m/%d')%>
+							</div>
+						</div>
+						<div class="sold-box-header-left-secondary">
+							<div class="sold-row">
+								<a class="sold-row-label">合計</a>
+							</div>
+							<div class="sold-row-secondary">
+								<%= sold.subtotal %> 円
+							</div>
+						</div>
+						<div class="sold-box-header-right">
+							<div class="sold-row">
+								<a class="sold-row-label">注文状況</a>
+							</div>
+							<div class="sold-row-secondary">
+								<% if admin_signed_in? %>
+								<%=button_to sold.state, admin_sold_path(current_admin.id, sold.id), method: :put %>
+								<% else %>
+								<%=sold.state%></td>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+				<% sold.sold_items.each do |sold_item| %>
+				<div class="sold-box-body">
+					<div class="sold-box-body-inner">
+						<div class="sold-content clearfix">
+							<div class="sold-content-image">
+							<%= attachment_image_tag sold_item.cd, :image, :fill, 100, 100, format: 'jpeg' %>
+							</div>
+							<div class="sold-content-details">
+								<div class="sold-content-row">
+									<%if admin_signed_in? %>
+									<%=link_to sold_item.cd.jacket_name, admin_cd_path(current_admin.id,sold_item.cd.id), class: "sold-cd-jacketname" %>
+									<% else %>
+									<%=link_to sold_item.cd.jacket_name, cd_path(sold_item.cd.id), class: "sold-cd-jacketname" %>
+									<% end %>
+								</div>
+								<div class="sold-content-row">
+									<%= sold_item.cd.artist_name %>
+								</div>
+								<div class="sold-content-row">
+									<%= sold_item.cd.rabel_name %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<% end %>
-			</table>
+			</div>
+			<% end %>
 		</div>
-	</div>
 </div>
 
 
