@@ -24,7 +24,7 @@ class SoldsController < ApplicationController
   end
 
   def index
-    @solds = Sold.all
+    @solds = Sold.all.order(created_at: 'desc')
   end
 
   def show
