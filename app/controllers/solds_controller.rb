@@ -4,7 +4,7 @@ class SoldsController < ApplicationController
 
   def create
   	@sold = Sold.create(user_id: current_user.id, cart_id: current_cart.id, subtotal: current_cart.subtotal)
-  	@cart_items = current_cart.cart_items
+    @cart_items = current_cart.cart_items
   	# @sold_item = SoldItem.new(params[:id])
   	@cart_items.each do |cart_item|
   		@sold_item = SoldItem.new(params[:id])
@@ -24,16 +24,33 @@ class SoldsController < ApplicationController
   end
 
   def index
-    @sold_items = SoldItem.all
+    @solds = Sold.all
   end
 
   def show
+  end
+
+  def update
+    sold = Sold.find(params[:id])
+    # @user.id = sold.user_id
+    if sold.state = '受付中' then
+      sold.preparate!
+    elsif sold.state = '準備中' 
+      sold.ship!
+    end
+    @user = sold.user
+    @sold_items = sold.sold_items
+    redirect_to admin_user_path(current_admin.id, @user.id)
   end
 
   private
   def sold_item_params
   	params.require(:sold_item).permit(:user_id, :cd_id, :quantity, :cart_id, :price)
   end
+
+  # def sold_params
+  #   params.permit(:state)
+  # end
 
   # def current_sold
   # 	if session[:sold_id]
