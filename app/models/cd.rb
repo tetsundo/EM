@@ -14,4 +14,5 @@ class Cd < ApplicationRecord
 	validates :release_date
 	validates :rabel_name
 	end
+	has_many :cd_comments
 end

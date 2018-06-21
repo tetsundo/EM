@@ -26,6 +26,8 @@ class CdsController < ApplicationController
       @cart = current_user.cart
       @cart_item = CartItem.new
     end
+    @cd_comment = CdComment.new
+    @cd_comments = CdComment.all
   end
 
   def index
