@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_one :cart
   has_many :solds
   has_many :sold_items
+  has_many :cd_comments
 
   soft_deletable
 

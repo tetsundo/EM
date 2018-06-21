@@ -53,13 +53,50 @@
                 <%= form_for [@cd, @cart_item], url:carts_path do |f| %>
                     <%= f.hidden_field :cd_id, :value => @cd.id %>
                     <%= f.label :購入枚数 %>
-                    <%= f.number_field :quantity, min: 1 %>
-                    <%= f.submit "カートに入れる" %>
+                    <%= f.number_field :quantity, min: 1 , class: "form-control" %>
+                    <%= f.submit "カートに入れる", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
                 <% end %>
             <% end %>
 
         </div>
         </div>
         <div class="col-lg-1"></div>
+    </div>
+    <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="row-secondary col-lg-8 clearfix">
+        <h3 class="review-header">カスタマーレビュー</h3>
+        <div class="review-summary">
+            
+        </div>
+        <div class="review-area form-group field clearfix">
+            <%= form_for [@cd, @cd_comment] do |f| %>
+            <div class="review-title">
+                <%= f.text_field :comment_title, class: "form-control", placeholder: "レビューの見出し" %>
+            </div>
+            <div class="review-body">
+                <%= f.text_area :comment, class: "form-control", placeholder: "ここにCDのレビューを記入（必須）" %>
+            </div>
+            <%= f.submit "コメントする",  class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+            <% end %>
+        </div>
+        <div class="review-row clearfix">
+            <h4 class="review-header">トップカスタマーレビュー</h4>
+        <% @cd_comments.each do |cd_comment| %>
+            <div class="reviewer">
+            <%= cd_comment.user.last_name %>
+            </div>
+            <div class="review-titile">
+            <%= cd_comment.comment_title %>
+            </div>
+            <div class="review-date">
+            <%= cd_comment.created_at.strftime('%Y/%m/%d')%>
+            </div>
+            <div class="review-content">
+            <%= cd_comment.comment %>
+            </div>
+        <% end %>
+        </div>
+    </div>
     </div>
 </div>
