@@ -27,6 +27,6 @@ class CdCommentsController < ApplicationController
 
 	private
 	def cd_comment_params
-		params.require(:cd_comment).permit(:user_id, :cd_id, :comment, :comment_title)
+		params.require(:cd_comment).permit(:user_id, :cd_id, :comment, :comment_title, :star)
 	end
 end
