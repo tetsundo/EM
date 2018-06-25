@@ -84,3 +84,6 @@ gem 'bootstrap-sass'
 gem 'nested_form_fields'
 
 gem 'kakurenbo-puti'
+
+#商品状態
+gem 'aasm'

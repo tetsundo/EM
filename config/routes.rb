@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   resources :solds, only: [:show, :create]
   resources :genres, only: [:show]
   resources :songs, only: [:new, :create]
-  resources :cds, only:[:show, :new, :create, :destroy, :edit, :update]
+  resources :cds, only:[:show, :new, :create, :destroy, :edit, :update] do 
+    resources :cd_comments, only:[:show, :create, :edit, :destroy, :update]
+  end
   resources :admins do
     resources :cds, only: [:new, :create, :destroy, :edit, :update]
     resources :users, only: [:show, :edit, :update, :destroy, :index]
-    resources :solds, only: [:index]
+    resources :solds, only: [:index, :update]
   end
   resources :users, only: [:show, :edit, :update, :destroy]
   root 'cds#index'
