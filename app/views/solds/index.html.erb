@@ -35,9 +35,9 @@
 							</div>
 							<div class="sold-row-secondary">
 								<% if admin_signed_in? %>
-								<%=button_to sold.state, admin_sold_path(current_admin.id, sold.id), method: :put %>
+								<%=button_to sold.aasm_state, admin_sold_path(current_admin.id, sold.id), method: :put %>
 								<% else %>
-								<%=sold.state%></td>
+								<%=sold.aasm_state%></td>
 								<% end %>
 							</div>
 						</div>
