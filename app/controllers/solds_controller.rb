@@ -33,9 +33,9 @@ class SoldsController < ApplicationController
   def update
     sold = Sold.find(params[:id])
     # @user.id = sold.user_id
-    if sold.state = '受付中' then
+    if sold.aasm_state == '受付中'
       sold.preparate!
-    elsif sold.state = '準備中' 
+    elsif sold.aasm_state == '準備中'
       sold.ship!
     end
     redirect_to admin_solds_path(current_admin.id)
@@ -46,8 +46,9 @@ class SoldsController < ApplicationController
   	params.require(:sold_item).permit(:user_id, :cd_id, :quantity, :cart_id, :price)
   end
 
+
   # def sold_params
-  #   params.permit(:state)
+  #   params.require(:sold).permit(:aasm_state)
   # end
 
   # def current_sold
